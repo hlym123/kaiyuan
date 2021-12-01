@@ -1,0 +1,270 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. 按键 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="4. 液晶显示屏" href="display.html" />
+    <link rel="prev" title="2. 蜂鸣器" href="buzzer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> 开元编程开发套件
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">教程</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">使用说明</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">控制器</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">MicroPython Pico</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="quickstart.html">1. 入门使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="buzzer.html">2. 蜂鸣器</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3. 按键</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">3.1. 应用编程接口说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3.2. 案例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="display.html">4. 液晶显示屏</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/index.html">功能模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../turtle.html">海龟画图</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MicroPython 库</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../micropython/index.html">MicroPython库</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">开元编程开发套件</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">控制器</a> &raquo;</li>
+        
+          <li><a href="intro.html">MicroPython Pico</a> &raquo;</li>
+        
+      <li><span class="section-number">3. </span>按键</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/tutorials/dev_board/MicroPython Pico/button.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">3. </span>按键<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>按键按下接低电平，弹起接高电平。</p>
+<div class="section" id="id2">
+<h2><span class="section-number">3.1. </span>应用编程接口说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 导入  button1, button2 模块</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">button1</span><span class="p">,</span> <span class="n">button2</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：检查按键是否按下</span>
+<span class="sd"> 返回值：</span>
+<span class="sd">    按键按下 -- True</span>
+<span class="sd">    按键弹起 -- False</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">button1</span><span class="o">.</span><span class="n">is_press</span><span class="p">()</span>
+<span class="n">button2</span><span class="o">.</span><span class="n">is_press</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">3.2. </span>案例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p><strong>1. 按键检测</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">button1</span><span class="p">,</span> <span class="n">button2</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">button1</span><span class="o">.</span><span class="n">is_press</span><span class="p">():</span> <span class="c1"># 检测到按键按下</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">button1</span><span class="o">.</span><span class="n">is_press</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;button 1 press&quot;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">button1</span><span class="o">.</span><span class="n">is_press</span><span class="p">())</span> <span class="p">:</span> <span class="c1"># 等待按键释放</span>
+            <span class="k">pass</span>
+    <span class="k">if</span> <span class="n">button2</span><span class="o">.</span><span class="n">is_press</span><span class="p">():</span> <span class="c1"># 检测到按键按下</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">button2</span><span class="o">.</span><span class="n">is_press</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;button 2 press&quot;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">button2</span><span class="o">.</span><span class="n">is_press</span><span class="p">())</span> <span class="p">:</span> <span class="c1"># 等待按键释放</span>
+            <span class="k">pass</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="display.html" class="btn btn-neutral float-right" title="4. 液晶显示屏" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="buzzer.html" class="btn btn-neutral float-left" title="2. 蜂鸣器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Buintel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

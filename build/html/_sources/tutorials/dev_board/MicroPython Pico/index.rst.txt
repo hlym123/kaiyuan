@@ -1,0 +1,15 @@
+MicroPython Pico 
+========================================
+
+.. toctree::
+   :maxdepth: 1
+   :numbered:
+  
+   intro.rst
+   button.rst
+   buzzer.rst
+   display.rst
+
+
+
+ 

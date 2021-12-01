@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>海龟画图 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="MicroPython库" href="../micropython/index.html" />
+    <link rel="prev" title="7. 语音识别模块" href="modules/asr.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 开元编程开发套件
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">教程</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_board/index.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/index.html">功能模块</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">海龟画图</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">应用编程接口说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">画太阳花</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">画五角星</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">画正多边形</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">画树</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">绘制科赫雪花</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">MicroPython 库</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../micropython/index.html">MicroPython库</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">开元编程开发套件</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>海龟画图</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorials/turtle.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>海龟画图<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>显示屏分辨率为320*240，海龟画图画布原点为显示屏中心点</p>
+<div class="section" id="id2">
+<h2>应用编程接口说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 导入 turtle 模块</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">turtle</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：放下画笔（移动画笔绘图）</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：抬起画笔（移动画笔不绘图）</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">pendup</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：设置画笔颜色</span>
+<span class="sd"> 参数：r,g,b 取值范围：0~255</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：设置画笔大小</span>
+<span class="sd"> 参数：width</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：清除绘图</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：复位，回到初始状态</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：移动画笔到指定位置</span>
+<span class="sd"> 参数：x</span>
+<span class="sd"> 参数：y</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：顺时针方向旋转指定角度</span>
+<span class="sd"> 参数：angle</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：逆时针方向旋转指定角度</span>
+<span class="sd"> 参数：angle</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：向前移动</span>
+<span class="sd"> 参数：step — 步进值</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：向后移动</span>
+<span class="sd"> 参数：step — 步进值</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：设置画笔坐标x</span>
+<span class="sd"> 参数：x</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">setx</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：设置画笔坐标y</span>
+<span class="sd"> 参数：y</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">sety</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：写文本</span>
+<span class="sd"> 参数：text — 文本内容</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：读取画笔当前位置(x, y)</span>
+<span class="sd"> 返回：x, y</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：返回画笔坐标x</span>
+<span class="sd"> 返回：x</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">xcor</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：返回画笔坐标y</span>
+<span class="sd"> 返回：y</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">ycor</span><span class="p">()</span>
+
+ <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：回到原点</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">home</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：返回画笔位置到坐标(x, y)的距离</span>
+<span class="sd"> 参数：x 水平位置</span>
+<span class="sd"> 参数：y 垂直位置</span>
+<span class="sd"> 返回：两点距离</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：返回画笔位置与位置(x, y)的夹角</span>
+<span class="sd"> 参数：x 水平位置</span>
+<span class="sd"> 参数：y 垂直位置</span>
+<span class="sd"> 返回：夹角</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">towards</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：返回画笔当前方向</span>
+<span class="sd"> 返回：</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+ <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>画太阳花<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">turtle</span>  <span class="c1"># 导入 turtle 模块</span>
+
+
+<span class="n">turtle</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># 设置背景为黑色</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>              <span class="c1"># 抬起画笔</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">)</span>       <span class="c1"># 移动画笔到位置(-100, -8)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>            <span class="c1"># 放下画笔，开始绘图</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 设置画笔颜色为黄色</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>        <span class="c1"># 向前移动 200</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">170</span><span class="p">)</span>         <span class="c1"># 逆时针方向旋转 170°</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>画五角星<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>正五边形的内角为(n-2)*180/n = (5-2)*180/5 = 108°，五角星内角为36°</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">turtle</span>
+
+
+<span class="n">length</span> <span class="o">=</span> <span class="mi">160</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># 设置背景为黑色</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>            <span class="c1"># 设置画笔大小为3</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>    <span class="c1"># 设置画笔颜色为黄色</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+<span class="c1"># 根据五角星边长 length 计算画笔起始位置</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">length</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">36</span><span class="p">))</span><span class="o">-</span><span class="n">length</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="n">length</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">72</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span> <span class="c1"># 逆时针旋转36°</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">144</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>画正多边形<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">turtle</span>
+
+
+<span class="n">NUM</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># 边数</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">50</span>   <span class="c1"># 边长</span>
+<span class="n">interior_angle</span> <span class="o">=</span> <span class="p">(</span><span class="n">NUM</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">NUM</span> <span class="c1"># 计算多边形内角</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUM</span><span class="p">):</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">180</span><span class="o">-</span><span class="n">interior_angle</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>画树<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>树的颜色随机变化</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">turtle</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+
+<span class="k">def</span> <span class="nf">draw_colorful_tree</span><span class="p">(</span><span class="n">branch_len</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="c1"># 生成 0~255 的随机数</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># 根据随机数设置画笔颜色</span>
+    <span class="k">if</span> <span class="n">branch_len</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">:</span>
+        <span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">branch_len</span><span class="p">)</span>
+        <span class="n">turtle</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">draw_colorful_tree</span><span class="p">(</span><span class="n">branch_len</span><span class="o">-</span><span class="mi">15</span><span class="p">)</span>
+        <span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+        <span class="n">draw_colorful_tree</span><span class="p">(</span><span class="n">branch_len</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">turtle</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">turtle</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">branch_len</span><span class="p">)</span>
+
+<span class="n">turtle</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+    <span class="n">draw_colorful_tree</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>绘制科赫雪花<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>按键切换科赫雪花阶数</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">turtle</span><span class="p">,</span> <span class="n">button1</span><span class="p">,</span> <span class="n">button2</span>
+<span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">random</span>
+
+
+<span class="k">def</span> <span class="nf">draw_koch</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">angle</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">120</span><span class="p">,</span> <span class="mi">60</span><span class="p">]:</span>
+            <span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+            <span class="n">draw_koch</span><span class="p">(</span><span class="n">size</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">koch_curve</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="n">n</span> <span class="c1"># 科赫雪花阶数</span>
+    <span class="n">draw_koch</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+    <span class="n">draw_koch</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+    <span class="n">draw_koch</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">koch_curve</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">button1</span><span class="o">.</span><span class="n">is_press</span><span class="p">():</span> <span class="c1"># 检测到按键按下</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># 延时消抖</span>
+        <span class="k">if</span> <span class="n">button1</span><span class="o">.</span><span class="n">is_press</span><span class="p">():</span>
+            <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">koch_curve</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">button1</span><span class="o">.</span><span class="n">is_press</span><span class="p">())</span> <span class="p">:</span> <span class="c1"># 等待按键释放</span>
+            <span class="k">pass</span>
+    <span class="k">if</span> <span class="n">button2</span><span class="o">.</span><span class="n">is_press</span><span class="p">():</span> <span class="c1"># 检测到按键按下</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">button2</span><span class="o">.</span><span class="n">is_press</span><span class="p">():</span>
+            <span class="n">num</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="mi">4</span>
+            <span class="n">koch_curve</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">button2</span><span class="o">.</span><span class="n">is_press</span><span class="p">())</span> <span class="p">:</span> <span class="c1"># 等待按键释放</span>
+            <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../micropython/index.html" class="btn btn-neutral float-right" title="MicroPython库" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="modules/asr.html" class="btn btn-neutral float-left" title="7. 语音识别模块" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Buintel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

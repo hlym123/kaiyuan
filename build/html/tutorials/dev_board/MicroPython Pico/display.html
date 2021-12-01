@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. 液晶显示屏 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="功能模块" href="../../modules/index.html" />
+    <link rel="prev" title="3. 按键" href="button.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> 开元编程开发套件
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">教程</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">使用说明</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">控制器</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">MicroPython Pico</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="quickstart.html">1. 入门使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="buzzer.html">2. 蜂鸣器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="button.html">3. 按键</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4. 液晶显示屏</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">4.1. 应用编程接口说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">4.2. 案例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/index.html">功能模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../turtle.html">海龟画图</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MicroPython 库</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../micropython/index.html">MicroPython库</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">开元编程开发套件</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">控制器</a> &raquo;</li>
+        
+          <li><a href="intro.html">MicroPython Pico</a> &raquo;</li>
+        
+      <li><span class="section-number">4. </span>液晶显示屏</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/tutorials/dev_board/MicroPython Pico/display.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">4. </span>液晶显示屏<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>分辨率：240*320(QVGA)</p>
+<div class="section" id="id2">
+<h2><span class="section-number">4.1. </span>应用编程接口说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 导入 lcd 模块</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">lcd</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：初始化</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：清空显示</span>
+<span class="sd"> 参数：</span>
+<span class="sd">    color: 颜色，元组类型 r,g,b：0~255</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：设置显示方向</span>
+<span class="sd"> 参数：</span>
+<span class="sd">    r: 0, 1, 2, 3</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：设置背光亮度</span>
+<span class="sd"> 参数：</span>
+<span class="sd">    val: 0~100</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">set_backlight</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：画字符</span>
+<span class="sd"> 参数：</span>
+<span class="sd">    x, y: 起始位置</span>
+<span class="sd">    string: 字符串</span>
+<span class="sd">    fc: 字体颜色，元组类型 r,g,b：0~255</span>
+<span class="sd">    bc: 背景色</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：画线</span>
+<span class="sd"> 参数：</span>
+<span class="sd">    x0, y0: 起点位置</span>
+<span class="sd">    x1, y1: 终点位置</span>
+<span class="sd">    color: 线颜色，元组类型 r,g,b：0~255</span>
+<span class="sd">    thickness: 线宽</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：画矩形</span>
+<span class="sd"> 参数：</span>
+<span class="sd">    x, y: 起始位置</span>
+<span class="sd">    w, h：宽和高</span>
+<span class="sd">    color: 线颜色，元组类型 r,g,b：0~255</span>
+<span class="sd">    thickness: 线宽</span>
+<span class="sd">    fill: 是否填充</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">draw_rectangle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：画圆</span>
+<span class="sd"> 参数：</span>
+<span class="sd">    x, y: 圆心位置</span>
+<span class="sd">    radius： 半径</span>
+<span class="sd">    color: 线颜色，元组类型 r,g,b：0~255</span>
+<span class="sd">    thickness: 线宽</span>
+<span class="sd">    fill: 是否填充</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">draw_circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">4.2. </span>案例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p><strong>1. 绘图测试</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lcd</span>
+
+<span class="n">lcd</span><span class="o">.</span><span class="n">set_backlight</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">draw_rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">draw_circle</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="s2">&quot;lcd draw test&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../modules/index.html" class="btn btn-neutral float-right" title="功能模块" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="button.html" class="btn btn-neutral float-left" title="3. 按键" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Buintel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
