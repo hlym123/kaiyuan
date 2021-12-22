@@ -13,7 +13,7 @@
    :caption: 教程
 
    tutorials/intro.rst
-   tutorials/dev_board/index.rst
+   tutorials/controller/intro.rst
    tutorials/modules/index.rst
    tutorials/turtle.rst
    

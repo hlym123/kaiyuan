@@ -83,8 +83,8 @@
             
               <p class="caption"><span class="caption-text">教程</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">使用说明</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev_board/index.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controller/intro.html">主控</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">功能模块</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1. 可编程全彩LED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">1.1. 应用编程接口说明</a></li>
@@ -172,7 +172,7 @@
             
   <div class="section" id="led">
 <h1><span class="section-number">1. </span>可编程全彩LED<a class="headerlink" href="#led" title="永久链接至标题">¶</a></h1>
-<p>板载三颗RGB全彩LED，每种颜色可实现0~255共256级亮度调节，通过对红(Red)、绿(Green)、蓝(Blue)三个颜色通道的调节可叠加发出多种颜色的光。</p>
+<p>三颗全彩LED，每种颜色可实现0~255共256级亮度调节，通过对红(Red)、绿(Green)、蓝(Blue)三个颜色通道的调节可叠加发出不同颜色的光。</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/rgb_led.png"><img alt="../../_images/rgb_led.png" src="../../_images/rgb_led.png" style="width: 200px;" /></a>
 </div>
@@ -250,7 +250,7 @@
 </pre></div>
 </div>
 <p><strong>3. 颜色渐变</strong></p>
-<p>RGB彩虹色渐变算法: <a class="reference external" href="https://www.cnblogs.com/wzdxy/p/5346930.html">https://www.cnblogs.com/wzdxy/p/5346930.html</a></p>
+<p>参考 <a class="reference external" href="https://www.cnblogs.com/wzdxy/p/5346930.html">RGB彩虹色渐变算法</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">rgb_led</span>
 

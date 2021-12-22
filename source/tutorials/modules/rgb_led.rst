@@ -1,7 +1,7 @@
 可编程全彩LED
 ======================================================
 
-板载三颗RGB全彩LED，每种颜色可实现0~255共256级亮度调节，通过对红(Red)、绿(Green)、蓝(Blue)三个颜色通道的调节可叠加发出多种颜色的光。
+三颗全彩LED，每种颜色可实现0~255共256级亮度调节，通过对红(Red)、绿(Green)、蓝(Blue)三个颜色通道的调节可叠加发出不同颜色的光。
 
 .. figure:: rgb_led.png 
    :width: 200
@@ -85,7 +85,7 @@
         
 **3. 颜色渐变**
 
-RGB彩虹色渐变算法: https://www.cnblogs.com/wzdxy/p/5346930.html
+参考 \ `RGB彩虹色渐变算法 <https://www.cnblogs.com/wzdxy/p/5346930.html>`_
 ::
 
     import time

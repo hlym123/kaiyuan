@@ -167,9 +167,9 @@
     turtle.pendown()            # 放下画笔，开始绘图
     turtle.pencolor(255,255,0)  # 设置画笔颜色为黄色 
     for i in range(50): 
-        turtle.forward(200)        # 向前移动 200
+        turtle.forward(200)     # 向前移动 200
         time.sleep_ms(100)
-        turtle.left(170)         # 逆时针方向旋转 170°
+        turtle.left(170)        # 逆时针方向旋转 170°
 
 
 
@@ -185,8 +185,8 @@
 
     length = 160   
     turtle.clear(color=(0,0,0)) # 设置背景为黑色
-    turtle.pensize(3)            # 设置画笔大小为3
-    turtle.pencolor(255,255,0)    # 设置画笔颜色为黄色
+    turtle.pensize(3)           # 设置画笔大小为3
+    turtle.pencolor(255,255,0)  # 设置画笔颜色为黄色
     turtle.penup()
     # 根据五角星边长 length 计算画笔起始位置 
     turtle.goto(-(length*math.cos(math.radians(36))-length/2), -length*math.sin(math.radians(72))/2)

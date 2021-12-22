@@ -83,8 +83,8 @@
             
               <p class="caption"><span class="caption-text">教程</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">使用说明</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dev_board/index.html">控制器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controller/intro.html">主控</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/index.html">功能模块</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">海龟画图</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">应用编程接口说明</a></li>
@@ -325,9 +325,9 @@
 <span class="n">turtle</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>            <span class="c1"># 放下画笔，开始绘图</span>
 <span class="n">turtle</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 设置画笔颜色为黄色</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
-    <span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>        <span class="c1"># 向前移动 200</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>     <span class="c1"># 向前移动 200</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-    <span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">170</span><span class="p">)</span>         <span class="c1"># 逆时针方向旋转 170°</span>
+    <span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">170</span><span class="p">)</span>        <span class="c1"># 逆时针方向旋转 170°</span>
 </pre></div>
 </div>
 </div>
@@ -340,8 +340,8 @@
 
 <span class="n">length</span> <span class="o">=</span> <span class="mi">160</span>
 <span class="n">turtle</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># 设置背景为黑色</span>
-<span class="n">turtle</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>            <span class="c1"># 设置画笔大小为3</span>
-<span class="n">turtle</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>    <span class="c1"># 设置画笔颜色为黄色</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>           <span class="c1"># 设置画笔大小为3</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">pencolor</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 设置画笔颜色为黄色</span>
 <span class="n">turtle</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
 <span class="c1"># 根据五角星边长 length 计算画笔起始位置</span>
 <span class="n">turtle</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">length</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">36</span><span class="p">))</span><span class="o">-</span><span class="n">length</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="n">length</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">72</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
