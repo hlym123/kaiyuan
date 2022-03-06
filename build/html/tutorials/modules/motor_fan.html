@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6. 电机风扇 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
+  <title>7. 电机风扇 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="7. 语音识别模块" href="asr.html" />
-    <link rel="prev" title="5. 温湿度传感器" href="th_sensor.html" /> 
+    <link rel="next" title="8. 舵机" href="servo.html" />
+    <link rel="prev" title="6. 光照强度传感器" href="light_sensor.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,12 +91,17 @@
 <li class="toctree-l2"><a class="reference internal" href="potentiometer.html">3. 电位器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ultrasonic.html">4. 超声波测距传感器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="th_sensor.html">5. 温湿度传感器</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">6. 电机风扇</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">6.1. 应用编程接口说明</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">6.2. 案例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="light_sensor.html">6. 光照强度传感器</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7. 电机风扇</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">7.1. 应用编程接口说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">7.2. 案例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="asr.html">7. 语音识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servo.html">8. 舵机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asr.html">9. 语音识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tts.html">10. 语音合成模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fingerprint.html">11. 指纹识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enlighten.html">12. AI模块启蒙</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../turtle.html">海龟画图</a></li>
@@ -104,6 +109,10 @@
 <p class="caption"><span class="caption-text">MicroPython 库</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../micropython/index.html">MicroPython库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">图形化编程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mixly/readme.html">图形化编程</a></li>
 </ul>
 
             
@@ -151,7 +160,7 @@
         
           <li><a href="index.html">功能模块</a> &raquo;</li>
         
-      <li><span class="section-number">6. </span>电机风扇</li>
+      <li><span class="section-number">7. </span>电机风扇</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -171,12 +180,12 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1><span class="section-number">6. </span>电机风扇<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1><span class="section-number">7. </span>电机风扇<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/motor_fan.png"><img alt="../../_images/motor_fan.png" src="../../_images/motor_fan.png" style="width: 260px;" /></a>
 </div>
 <div class="section" id="id2">
-<h2><span class="section-number">6.1. </span>应用编程接口说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2><span class="section-number">7.1. </span>应用编程接口说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 导入 motor_fan 模块</span>
 <span class="sd">&#39;&#39;&#39;</span>
@@ -199,7 +208,7 @@
 </div>
 </div>
 <div class="section" id="id3">
-<h2><span class="section-number">6.2. </span>案例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2><span class="section-number">7.2. </span>案例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p><strong>1. 调速风扇</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="o">*</span>
@@ -226,10 +235,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="asr.html" class="btn btn-neutral float-right" title="7. 语音识别模块" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="servo.html" class="btn btn-neutral float-right" title="8. 舵机" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="th_sensor.html" class="btn btn-neutral float-left" title="5. 温湿度传感器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="light_sensor.html" class="btn btn-neutral float-left" title="6. 光照强度传感器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -95,8 +95,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="th_sensor.html">5. 温湿度传感器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="motor_fan.html">6. 电机风扇</a></li>
-<li class="toctree-l2"><a class="reference internal" href="asr.html">7. 语音识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="light_sensor.html">6. 光照强度传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motor_fan.html">7. 电机风扇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servo.html">8. 舵机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asr.html">9. 语音识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tts.html">10. 语音合成模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fingerprint.html">11. 指纹识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enlighten.html">12. AI模块启蒙</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../turtle.html">海龟画图</a></li>
@@ -104,6 +109,10 @@
 <p class="caption"><span class="caption-text">MicroPython 库</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../micropython/index.html">MicroPython库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">图形化编程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mixly/readme.html">图形化编程</a></li>
 </ul>
 
             
@@ -173,7 +182,8 @@
   <div class="section" id="id1">
 <h1><span class="section-number">4. </span>超声波测距传感器<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>超声波测距传感器可发送和接收超声波。发送出去的超声波遇到障碍物时会产生回波，
-通过测量发送超声波到接收到回波的时间间隔，可计算得传感器与障碍物的距离。传感器的量程：2~200cm；误差：±1%。</p>
+通过测量发送超声波到接收到回波的时间间隔：t，再根据声速：s，可计算得传感器与障碍物的距离：d=s/2t。
+模块内置运算单元，可直接读取计算结果。传感器的量程：2~200cm；误差：±1%。</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/ul_sensor.png"><img alt="../../_images/ul_sensor.png" src="../../_images/ul_sensor.png" style="width: 260px;" /></a>
 </div>
@@ -198,7 +208,7 @@
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 方法：读取测量值</span>
-<span class="sd"> 说明：在触发测量后等待100ms，再读取测量值</span>
+<span class="sd"> 说明：在触发测量后，需要等待回波信号（不大于100ms），再读取测量值。</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="n">ultrasonic</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
@@ -206,7 +216,7 @@
 </div>
 <div class="section" id="id3">
 <h2><span class="section-number">4.2. </span>案例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p><strong>1. 超声波测距显示</strong></p>
+<p><strong>1. 超声波测距</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="o">*</span>
 
@@ -215,9 +225,38 @@
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">us_sensor</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span> <span class="c1"># 触发测量</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>    <span class="c1"># 等待测量完成</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># 等待测量完成</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;distance: </span><span class="si">%.1f</span><span class="s2">cm</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">us_sensor</span><span class="o">.</span><span class="n">read</span><span class="p">())</span> <span class="c1"># 读取测量结果</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">380</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>2. 超声波测距显示</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># time.ticks_ms() -- 获取运行时间</span>
+<span class="c1"># time.ticks_diff(deadline, time.ticks_ms()) -- 计算差值</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">lcd</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="o">*</span>
+
+
+<span class="n">us_sensor</span> <span class="o">=</span> <span class="n">ultrasonic</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">lcd</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">trig</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">deadline</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">trig</span><span class="p">:</span>
+        <span class="n">trig</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">us_sensor</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span> <span class="c1"># 触发测量</span>
+        <span class="n">deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span> <span class="o">+</span> <span class="mi">100</span>
+    <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">deadline</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">())</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># 等待</span>
+        <span class="n">trig</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">dis</span> <span class="o">=</span> <span class="n">us_sensor</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># 读取测量结果</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;距离: </span><span class="si">%.1f</span><span class="s2">cm&quot;</span><span class="o">%</span><span class="n">dis</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;distance: </span><span class="si">%.1f</span><span class="s2">cm</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">dis</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
 </pre></div>
 </div>
 <hr class="docutils" />

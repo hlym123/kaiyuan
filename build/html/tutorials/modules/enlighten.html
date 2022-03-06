@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>12. AI模块启蒙 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="海龟画图" href="../turtle.html" />
+    <link rel="prev" title="11. 指纹识别模块" href="fingerprint.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> 开元编程开发套件
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">教程</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controller/intro.html">主控</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">功能模块</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rgb_led.html">1. 可编程全彩LED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">2. 按键组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="potentiometer.html">3. 电位器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic.html">4. 超声波测距传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="th_sensor.html">5. 温湿度传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="light_sensor.html">6. 光照强度传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motor_fan.html">7. 电机风扇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servo.html">8. 舵机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asr.html">9. 语音识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tts.html">10. 语音合成模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fingerprint.html">11. 指纹识别模块</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">12. AI模块启蒙</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">12.1. 应用编程接口说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">12.2. 案例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../turtle.html">海龟画图</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MicroPython 库</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../micropython/index.html">MicroPython库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">图形化编程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mixly/readme.html">图形化编程</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">开元编程开发套件</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">功能模块</a> &raquo;</li>
+        
+      <li><span class="section-number">12. </span>AI模块启蒙</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/tutorials/modules/enlighten.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ai">
+<h1><span class="section-number">12. </span>AI模块启蒙<a class="headerlink" href="#ai" title="永久链接至标题">¶</a></h1>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/enlighten_top.png"><img alt="../../_images/enlighten_top.png" src="../../_images/enlighten_top.png" style="width: 260px;" /></a>
+</div>
+<div class="section" id="id1">
+<h2><span class="section-number">12.1. </span>应用编程接口说明<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 导入 enlighten 模块</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">enlighten</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 类：AI模块启蒙</span>
+<span class="sd"> 参数:</span>
+<span class="sd">    port: 端口号(1或7)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">class</span> <span class="nc">enlighten</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 等待模块连接</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">enlighten</span><span class="o">.</span><span class="n">wait_connect</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 设置模块工作模式</span>
+<span class="sd"> @m:</span>
+<span class="sd">    &quot;qrcode scan&quot; -- 二维码扫描</span>
+<span class="sd">    &quot;mask detect&quot; -- 口罩检测</span>
+<span class="sd">    &quot;image class&quot; -- 图像检测分类</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">enlighten</span><span class="o">.</span><span class="n">set_mode</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 请求数据</span>
+<span class="sd"> @m:</span>
+<span class="sd">    &quot;qrcode&quot;      -- 二维码信息</span>
+<span class="sd">    &quot;mask detect&quot; -- 口罩检测结果</span>
+<span class="sd">    &quot;image class&quot; -- 图像检测分类结果</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">enlighten</span><span class="o">.</span><span class="n">request_data</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 读取二维码扫描结果</span>
+<span class="sd"> @return 二维码信息</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">enlighten</span><span class="o">.</span><span class="n">read_qrcode_info</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 读取色块信息</span>
+<span class="sd"> @return</span>
+<span class="sd">    [x, y, w, h, pixels]</span>
+<span class="sd">    x, y 为色块中心坐标</span>
+<span class="sd">    w, h 为色块的宽和高</span>
+<span class="sd">    pixels 为色块内像素数</span>
+
+<span class="sd"> @Example:</span>
+<span class="sd">    x, y, w, h, pixels = enlighten.read_blob_info()</span>
+<span class="sd">    # 或者</span>
+<span class="sd">    res = enlighten.read_blob_info()</span>
+<span class="sd">    x = res[0]</span>
+<span class="sd">    y = res[1]</span>
+<span class="sd">    w = res[2]</span>
+<span class="sd">    h = res[3]</span>
+<span class="sd">    pixels = res[4]</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">enlighten</span><span class="o">.</span><span class="n">read_blob_info</span><span class="p">()</span>
+
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 读取检测结果</span>
+<span class="sd"> @return</span>
+<span class="sd">    [x, y, w, h, classid, confidence]</span>
+<span class="sd">    x, y 为边界框的中心坐标</span>
+<span class="sd">    w, h 为边界框的宽和高</span>
+<span class="sd">    classid 为分类结果</span>
+<span class="sd">    confidence 为置信度</span>
+
+<span class="sd"> @Example:</span>
+<span class="sd">    x, y, w, h, classid, confidence = enlighten.read_detect_info()</span>
+<span class="sd">    # 或者</span>
+<span class="sd">    res = enlighten.read_detect_info()</span>
+<span class="sd">    bbox = res[0:4]      # 边界框参数</span>
+<span class="sd">    classid = res[4]     # 分类结果</span>
+<span class="sd">    confidence = res[5]  # 置信度</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">enlighten</span><span class="o">.</span><span class="n">read_detect_info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">12.2. </span>案例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p><strong>1. 二维码扫描</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">lcd</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">dev</span> <span class="o">=</span> <span class="n">enlighten_com</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>      <span class="c1"># 启蒙模块连接到端口1</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">wait_connect</span><span class="p">()</span>          <span class="c1"># 等待模块链连接</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">set_mode</span><span class="p">(</span><span class="s2">&quot;qrcode scan&quot;</span><span class="p">)</span> <span class="c1"># 设为二维码扫描模式</span>
+
+<span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;二维码扫描&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">dev</span><span class="o">.</span><span class="n">request_data</span><span class="p">(</span><span class="s2">&quot;qrcode&quot;</span><span class="p">)</span> <span class="p">:</span> <span class="c1"># 请求二维码扫描结果</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">get_qrcode_info</span><span class="p">()</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>2. 口罩检测</strong>
+口罩检查模型的分类结果中，classid为0表示没有戴口罩，1表示戴了口罩。</p>
+<p>分类标签映射 label_map = {0: ‘unmask’, 1: ‘mask’}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">lcd</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">dev</span> <span class="o">=</span> <span class="n">enlighten_com</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>      <span class="c1"># 启蒙模块连接到端口1</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">wait_connect</span><span class="p">()</span>          <span class="c1"># 等待模块链连接</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">set_mode</span><span class="p">(</span><span class="s2">&quot;mask detect&quot;</span><span class="p">)</span> <span class="c1"># 设为口罩检测</span>
+
+<span class="n">tts</span> <span class="o">=</span> <span class="n">tts</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;口罩检测提醒&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+
+<span class="n">last_play_time</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">dev</span><span class="o">.</span><span class="n">request_data</span><span class="p">(</span><span class="s2">&quot;mask detect&quot;</span><span class="p">)</span> <span class="p">:</span> <span class="c1"># 请求二维码扫描结果</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">get_mask_detect_info</span><span class="p">()</span>
+        <span class="n">classid</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="c1"># 分类结果</span>
+        <span class="n">conf</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>    <span class="c1"># 可信度</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">classid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="s2">&quot;请你带好口罩&quot;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;没戴口罩，可信度</span><span class="si">%d%%</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">conf</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="s2">&quot;你好&quot;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;戴了口罩，可信度</span><span class="si">%d%%</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">conf</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">last_play_time</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">):</span> <span class="c1"># 播放间隔大于2S</span>
+            <span class="n">tts</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="c1"># 语音播报</span>
+            <span class="n">last_play_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+
+        <span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>3. 图像检测分类</strong></p>
+<p>模块内置的图像检测分类模型能对以下20中物品检测识别</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 分类标签映射</span>
+<span class="n">label_map</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;airplane&#39;</span><span class="p">,</span>
+             <span class="mi">1</span><span class="p">:</span><span class="s1">&#39;bicycle&#39;</span><span class="p">,</span>
+             <span class="mi">2</span><span class="p">:</span><span class="s1">&#39;bird&#39;</span><span class="p">,</span>
+             <span class="mi">3</span><span class="p">:</span><span class="s1">&#39;steamship&#39;</span><span class="p">,</span>
+             <span class="mi">4</span><span class="p">:</span><span class="s1">&#39;bootle&#39;</span><span class="p">,</span>
+             <span class="mi">5</span><span class="p">:</span><span class="s1">&#39;bus&#39;</span><span class="p">,</span>
+             <span class="mi">6</span><span class="p">:</span><span class="s1">&#39;car&#39;</span><span class="p">,</span>
+             <span class="mi">7</span><span class="p">:</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span>
+             <span class="mi">8</span><span class="p">:</span><span class="s1">&#39;cheer&#39;</span><span class="p">,</span>
+             <span class="mi">9</span><span class="p">:</span><span class="s1">&#39;ox&#39;</span><span class="p">,</span>
+             <span class="mi">10</span><span class="p">:</span><span class="s1">&#39;dining-table&#39;</span><span class="p">,</span>
+             <span class="mi">11</span><span class="p">:</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span>
+             <span class="mi">12</span><span class="p">:</span><span class="s1">&#39;horse&#39;</span><span class="p">,</span>
+             <span class="mi">13</span><span class="p">:</span><span class="s1">&#39;motobike&#39;</span><span class="p">,</span>
+             <span class="mi">14</span><span class="p">:</span><span class="s1">&#39;person&#39;</span><span class="p">,</span>
+             <span class="mi">15</span><span class="p">:</span><span class="s1">&#39;flowerpot&#39;</span><span class="p">,</span>
+             <span class="mi">16</span><span class="p">:</span><span class="s1">&#39;sheep&#39;</span><span class="p">,</span>
+             <span class="mi">17</span><span class="p">:</span><span class="s1">&#39;sofa&#39;</span><span class="p">,</span>
+             <span class="mi">18</span><span class="p">:</span><span class="s1">&#39;train&#39;</span><span class="p">,</span>
+             <span class="mi">19</span><span class="p">:</span><span class="s1">&#39;tetevision&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>使用案例</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">lcd</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">dev</span> <span class="o">=</span> <span class="n">enlighten_com</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>      <span class="c1"># 启蒙模块连接到端口1</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">wait_connect</span><span class="p">()</span>          <span class="c1"># 等待模块链连接</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">set_mode</span><span class="p">(</span><span class="s2">&quot;image class&quot;</span><span class="p">)</span> <span class="c1"># 设为图像分类</span>
+
+<span class="n">tts</span> <span class="o">=</span> <span class="n">tts</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;图像识别分类&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+
+<span class="c1"># 20class 分类的分类标签</span>
+<span class="n">label</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;飞机&quot;</span><span class="p">,</span> <span class="s2">&quot;自行车&quot;</span><span class="p">,</span> <span class="s2">&quot;小鸟&quot;</span><span class="p">,</span> <span class="s2">&quot;轮船&quot;</span><span class="p">,</span> <span class="s2">&quot;瓶子&quot;</span><span class="p">,</span> <span class="s2">&quot;公共汽车&quot;</span><span class="p">,</span> <span class="s2">&quot;汽车&quot;</span><span class="p">,</span> <span class="s2">&quot;猫&quot;</span><span class="p">,</span> <span class="s2">&quot;椅子&quot;</span><span class="p">,</span> <span class="s2">&quot;牛&quot;</span><span class="p">,</span>  \
+         <span class="s2">&quot;餐桌&quot;</span><span class="p">,</span> <span class="s2">&quot;狗&quot;</span><span class="p">,</span> <span class="s2">&quot;马&quot;</span><span class="p">,</span> <span class="s2">&quot;摩托车&quot;</span><span class="p">,</span> <span class="s2">&quot;人&quot;</span><span class="p">,</span> <span class="s2">&quot;花盆&quot;</span><span class="p">,</span> <span class="s2">&quot;羊&quot;</span><span class="p">,</span> <span class="s2">&quot;沙发&quot;</span><span class="p">,</span> <span class="s2">&quot;火车&quot;</span><span class="p">,</span> <span class="s2">&quot;电视&quot;</span><span class="p">)</span>
+
+<span class="n">last_play_time</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">dev</span><span class="o">.</span><span class="n">request_data</span><span class="p">(</span><span class="s2">&quot;image class&quot;</span><span class="p">)</span> <span class="p">:</span> <span class="c1"># 请求二维码扫描结果</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">get_image_class_info</span><span class="p">()</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="s2">&quot;识别为: </span><span class="si">%s</span><span class="s2">, 可信度: </span><span class="si">%d%%</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">label</span><span class="p">[</span><span class="n">res</span><span class="p">[</span><span class="mi">4</span><span class="p">]],</span> <span class="n">res</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">last_play_time</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">):</span> <span class="c1"># 播放间隔大于2S</span>
+            <span class="n">tts</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">label</span><span class="p">[</span><span class="n">res</span><span class="p">[</span><span class="mi">4</span><span class="p">]])</span> <span class="c1"># 语音播报</span>
+            <span class="n">last_play_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../turtle.html" class="btn btn-neutral float-right" title="海龟画图" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fingerprint.html" class="btn btn-neutral float-left" title="11. 指纹识别模块" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Buintel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

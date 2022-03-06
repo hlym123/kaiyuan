@@ -47,19 +47,21 @@
 ::
 
     import time
-    import lcd 
+    import lcd
     from openaie import th_sensor
 
     th = th_sensor(5)
     lcd.rotation(1)
-    lcd.clear(0)
+    lcd.clear(color=0)
 
     while True:
         info = "temperature: %.1fC  humidity: %d%%"%(th.read_temperature(), th.read_humidity())
         print(info)
-        lcd.draw_string(10, 16, info, 0x0000FF, 0)
+        lcd.clear(color=0)
+        lcd.draw_string(10, 16, info, fc=(0,0,255), bc=(0,0,0))
+        lcd.display()
         time.sleep_ms(1000)
-		
+        
 ------------------------------------------------------
     
     

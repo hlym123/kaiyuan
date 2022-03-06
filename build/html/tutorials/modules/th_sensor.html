@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="6. 电机风扇" href="motor_fan.html" />
+    <link rel="next" title="6. 光照强度传感器" href="light_sensor.html" />
     <link rel="prev" title="4. 超声波测距传感器" href="ultrasonic.html" /> 
 </head>
 
@@ -95,8 +95,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#id3">5.2. 案例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="motor_fan.html">6. 电机风扇</a></li>
-<li class="toctree-l2"><a class="reference internal" href="asr.html">7. 语音识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="light_sensor.html">6. 光照强度传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motor_fan.html">7. 电机风扇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servo.html">8. 舵机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asr.html">9. 语音识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tts.html">10. 语音合成模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fingerprint.html">11. 指纹识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enlighten.html">12. AI模块启蒙</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../turtle.html">海龟画图</a></li>
@@ -104,6 +109,10 @@
 <p class="caption"><span class="caption-text">MicroPython 库</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../micropython/index.html">MicroPython库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">图形化编程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mixly/readme.html">图形化编程</a></li>
 </ul>
 
             
@@ -214,12 +223,14 @@
 
 <span class="n">th</span> <span class="o">=</span> <span class="n">th_sensor</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">lcd</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">info</span> <span class="o">=</span> <span class="s2">&quot;temperature: </span><span class="si">%.1f</span><span class="s2">C  humidity: </span><span class="si">%d%%</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">th</span><span class="o">.</span><span class="n">read_temperature</span><span class="p">(),</span> <span class="n">th</span><span class="o">.</span><span class="n">read_humidity</span><span class="p">())</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
-    <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="mh">0x0000FF</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -235,7 +246,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="motor_fan.html" class="btn btn-neutral float-right" title="6. 电机风扇" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="light_sensor.html" class="btn btn-neutral float-right" title="6. 光照强度传感器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="ultrasonic.html" class="btn btn-neutral float-left" title="4. 超声波测距传感器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

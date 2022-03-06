@@ -17,13 +17,18 @@
    tutorials/modules/index.rst
    tutorials/turtle.rst
    
-   
 .. toctree::
    :maxdepth: 2
    :caption: MicroPython 库 
 
    micropython/index.rst
    
+.. toctree::
+   :maxdepth: 2
+   :caption: 图形化编程 
+   
+   mixly/readme.rst 
+
    
                                                                                    
 Indices and tables
