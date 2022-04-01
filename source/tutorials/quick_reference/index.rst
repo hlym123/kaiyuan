@@ -5,7 +5,7 @@
 延时和计时 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. sourcecode:: ipython
+::
 
     '''
      导入 time 模块 
@@ -43,9 +43,8 @@
     delta = time.ticks_diff(ticks1, ticks2)  
 
     
-**Example**: 通过 time.ticks_ms() 实现一定时间的延时 
-    
-.. sourcecode:: ipython
+**Example**: 通过 time.ticks_ms() 实现一定时间的延时   
+::
   
     import time
 
