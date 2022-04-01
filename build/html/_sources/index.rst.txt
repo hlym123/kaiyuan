@@ -1,9 +1,3 @@
-.. tkm_mp documentation master file, created by
-   sphinx-quickstart on Sat May  9 09:07:44 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
- 
 开元编程开发套件 
 ==============================================
 
@@ -14,6 +8,7 @@
 
    tutorials/intro.rst
    tutorials/controller/intro.rst
+   tutorials/quick_reference/index.rst
    tutorials/modules/index.rst
    tutorials/turtle.rst
    

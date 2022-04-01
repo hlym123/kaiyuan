@@ -60,7 +60,7 @@ AI模块启蒙
         w, h 为色块的宽和高
         pixels 为色块内像素数 
     
-     @Example:
+     Example:
         x, y, w, h, pixels = enlighten.read_blob_info()
         # 或者 
         res = enlighten.read_blob_info()
@@ -82,7 +82,7 @@ AI模块启蒙
         classid 为分类结果
         confidence 为置信度 
     
-     @Example:
+     Example:
         x, y, w, h, classid, confidence = enlighten.read_detect_info()
         # 或者 
         res = enlighten.read_detect_info()

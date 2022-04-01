@@ -1,0 +1,597 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>快速开始 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="拓展模块" href="../modules/index.html" />
+    <link rel="prev" title="4. 液晶显示屏" href="../controller/display.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> 开元编程开发套件
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">教程</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controller/intro.html">主控</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">快速开始</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">延时和计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">定时器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">引脚控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">串口控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">模数转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">实时时钟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">看门狗定时器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">多核支持</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/index.html">拓展模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../turtle.html">海龟画图</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MicroPython 库</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../micropython/index.html">MicroPython库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">图形化编程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mixly/readme.html">图形化编程</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">开元编程开发套件</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>快速开始</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/tutorials/quick_reference/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>快速开始<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>延时和计时<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 导入 time 模块</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 秒级延时</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 毫秒级延时</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="n">ms</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 微秒级延时</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep_us</span><span class="p">(</span><span class="n">us</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 获取运行累计时间（系统内计数器，上电后每隔1ms加1）</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 计算时间和</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_add</span><span class="p">(</span><span class="n">ticks</span><span class="p">,</span> <span class="n">delta</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 计算时间差</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">ticks1</span><span class="p">,</span> <span class="n">ticks2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example</strong>: 通过 time.ticks_ms() 实现一定时间的延时</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">delay_time</span> <span class="o">=</span> <span class="mi">500</span> <span class="c1"># 500ms</span>
+<span class="n">deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">delay_time</span><span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">deadline</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">delay_time</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;count: &quot;</span><span class="p">,</span> <span class="n">cnt</span><span class="p">)</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> ...</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>当通过 time.sleep() 实现延时时，程序会完全停下等待；而通过判断 time.ticks_ms() 的值实现延时更高效。</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>定时器<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 从 machine 中导入 Timer 模块</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">Timer</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 创建定时器</span>
+<span class="sd"> @period: 定时周期(ms)</span>
+<span class="sd"> @mode: 定时器模式</span>
+<span class="sd">    Timer.ONE_SHOT 单次</span>
+<span class="sd">    Timer.PERIODIC 周期重复</span>
+<span class="sd"> @callback: 回调函数，当定时时间到来时会自动调用</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">tim</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="n">period</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">Timer</span>
+
+<span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">cnt</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;count: &quot;</span><span class="p">,</span> <span class="n">cnt</span><span class="p">)</span>
+
+<span class="c1"># 创建单次定时器，定时时间为3秒</span>
+<span class="n">tim1</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">ONE_SHOT</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3秒单次定时&quot;</span><span class="p">))</span>
+
+<span class="c1"># 创建周期定时器，定时间隔为1秒</span>
+<span class="n">tim2</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>引脚控制<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 从 machine 中导入 Pin</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">Pin</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> Pin 类</span>
+<span class="sd"> @id: 引脚号</span>
+<span class="sd"> @mode: 模式</span>
+<span class="sd">    Pin.IN 输入</span>
+<span class="sd">    Pin.OUT 输出</span>
+<span class="sd"> @pull:</span>
+<span class="sd">    Pin.None</span>
+<span class="sd">    Pin.PULL_UP      上拉</span>
+<span class="sd">    Pin.PULL_DOWN 下拉</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">class</span> <span class="nc">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">mode</span><span class="o">=-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pull</span><span class="o">=-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 获取或设置引脚电平</span>
+<span class="sd"> @x: 0--低电平，1--高电平</span>
+<span class="sd"> @return：引脚电平</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">Pin</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 中断</span>
+<span class="sd"> @handle: 中断回调</span>
+<span class="sd"> @trigger: 中断触发方式</span>
+<span class="sd">    Pin.IRQ_FALLING     下降沿（高电平到低电平变化）</span>
+<span class="sd">    Pin.IRQ_RISING         上升沿（低电平到高电平变化）</span>
+<span class="sd">    Pin.IRQ_LOW_LEVEL     低电平</span>
+<span class="sd">    Pin.IRQ_HIGH_LEVEL    高电平</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">Pin</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="o">|</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_RISING</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example</strong>: LED控制</p>
+<p>板载 LED 接引脚 25，高电平亮</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">Pin</span>
+
+<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example</strong>: 按键检测（循环检测）</p>
+<p>板载按键1连接引脚21，按键二连接引脚20，按下接低电平。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">Pin</span>
+
+<span class="n">pin_key1</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span> <span class="c1"># 上拉输入模式</span>
+<span class="n">pin_key2</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">pin_key1</span><span class="o">.</span><span class="n">value</span><span class="p">():</span> <span class="c1"># 检测到按键按下</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># 延时消抖</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">pin_key1</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;button 1 press&quot;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="p">(</span><span class="ow">not</span> <span class="n">pin_key1</span><span class="o">.</span><span class="n">value</span><span class="p">())</span> <span class="p">:</span> <span class="c1"># 等待按键释放</span>
+            <span class="k">pass</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">pin_key2</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">pin_key2</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;button 2 press&quot;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="p">(</span><span class="ow">not</span> <span class="n">pin_key2</span><span class="o">.</span><span class="n">value</span><span class="p">())</span> <span class="p">:</span>
+            <span class="k">pass</span>
+</pre></div>
+</div>
+<p><strong>Example</strong>: 按键检测（中断方式）</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">Pin</span>
+
+<span class="n">pin_key1</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span> <span class="c1"># 上拉输入模式</span>
+<span class="n">pin_key2</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span> <span class="c1"># 上拉输入模式</span>
+
+<span class="k">def</span> <span class="nf">key1</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;key1 press&quot;</span><span class="p">)</span>
+
+<span class="n">pin_key1</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">key1</span><span class="p">,</span> <span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">)</span> <span class="c1"># 下降沿触发</span>
+
+<span class="n">pin_key2</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="k">lambda</span> <span class="n">key2</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;检测到按键2按下&quot;</span><span class="p">),</span> <span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">)</span> <span class="c1"># 下降沿触发</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>串口控制<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>待完善…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">UART</span><span class="p">,</span> <span class="n">Pin</span>
+<span class="n">uart1</span> <span class="o">=</span> <span class="n">UART</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">9600</span><span class="p">,</span> <span class="n">tx</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">rx</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">uart1</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>  <span class="c1"># write 5 bytes</span>
+<span class="n">uart1</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>         <span class="c1"># read up to 5 bytes</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>模数转换<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>待完善…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">ADC</span><span class="p">,</span> <span class="n">Pin</span>
+<span class="n">adc</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span>     <span class="c1"># create ADC object on ADC pin</span>
+<span class="n">adc</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>         <span class="c1"># read value, 0-65535 across voltage range 0.0v - 3.3v</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>实时时钟<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>(RTC, Real Time Clock)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 从 machine 导入 RTC 模块</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">RTC</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> RTC 类</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">class</span> <span class="nc">RTC</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 设置或获取日期和时间</span>
+<span class="sd"> @week: 0~6 -- 星期一~星期日</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">RTC</span><span class="o">.</span><span class="n">datetime</span><span class="p">((</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">week</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Example</strong>: 时间显示</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lcd</span><span class="o">,</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">RTC</span>
+<span class="kn">import</span> <span class="nn">_thread</span> <span class="k">as</span> <span class="nn">thread</span>
+
+<span class="n">rtc</span> <span class="o">=</span> <span class="n">RTC</span><span class="p">()</span>
+<span class="n">rtc</span><span class="o">.</span><span class="n">datetime</span><span class="p">((</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="c1"># 2022/4/1 Friday 08:09:00</span>
+
+<span class="n">lcd</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 设为竖屏显示</span>
+
+<span class="n">week</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;星期一&quot;</span><span class="p">,</span> <span class="s2">&quot;星期二&quot;</span><span class="p">,</span> <span class="s2">&quot;星期三&quot;</span><span class="p">,</span> <span class="s2">&quot;星期四&quot;</span><span class="p">,</span> <span class="s2">&quot;星期五&quot;</span><span class="p">,</span> <span class="s2">&quot;星期六&quot;</span><span class="p">,</span> <span class="s2">&quot;星期日&quot;</span><span class="p">)</span>
+
+<span class="n">delay_time</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># 1000ms</span>
+<span class="n">deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">delay_time</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">deadline</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">delay_time</span><span class="p">)</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">rtc</span><span class="o">.</span><span class="n">datetime</span><span class="p">()</span>
+        <span class="n">date_info</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-</span><span class="si">%02d</span><span class="s2">-</span><span class="si">%02d</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">now</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+        <span class="n">time_info</span> <span class="o">=</span> <span class="s2">&quot; </span><span class="si">%02d</span><span class="s2">:</span><span class="si">%02d</span><span class="s2">:</span><span class="si">%02d</span><span class="s2"> &quot;</span><span class="o">%</span><span class="p">(</span><span class="n">now</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">date_info</span><span class="o">+</span><span class="n">time_info</span><span class="o">+</span><span class="n">week</span><span class="p">[</span><span class="n">now</span><span class="p">[</span><span class="mi">3</span><span class="p">]],</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>看门狗定时器<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>(WDT, Watch Dog Timer)</p>
+<p>看门狗定时器是主控内一个外设功能，主要功能是当系统出现故障时，使系统复位重新运行。
+当使能看门狗定时器时，定时器的计数值不断递增，计数值大于设定值时将使系统复位。
+当程序正常运行时在一定时间间隔内喂狗（清零计数值），定时器将重新开始计数。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 导入 WDT 模块</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">WDT</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 初始化看门狗，超时时间为5000ms</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">wdt</span> <span class="o">=</span> <span class="n">WDT</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 喂狗（清零计数值）</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">wdt</span><span class="o">.</span><span class="n">feed</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Example</strong>: 按键按下执行喂狗操作，当按键按下间隔大于看门狗超时时间时，系统复位，程序重新运行。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">WDT</span>
+<span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">lcd</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">button1</span>
+
+<span class="n">lcd</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># 初始化看门狗，超时时间为3000ms</span>
+<span class="n">wdt</span> <span class="o">=</span> <span class="n">WDT</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+
+<span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">delay_time</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">delay_time</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">deadline</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">delay_time</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cnt: &quot;</span><span class="p">,</span> <span class="n">cnt</span><span class="p">)</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;count: </span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">cnt</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">button1</span><span class="o">.</span><span class="n">is_press</span><span class="p">():</span> <span class="c1"># 检测到按键按下</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># 延时消抖</span>
+        <span class="k">if</span> <span class="n">button1</span><span class="o">.</span><span class="n">is_press</span><span class="p">():</span>
+            <span class="n">wdt</span><span class="o">.</span><span class="n">feed</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;watch dog feed&quot;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">button1</span><span class="o">.</span><span class="n">is_press</span><span class="p">())</span> <span class="p">:</span> <span class="c1"># 等待按键释放</span>
+            <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>多核支持<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>开元主控采用双核处理器</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 导入 _thread 模块</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">_thread</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 启动新线程</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">_thread</span><span class="o">.</span><span class="n">start_new_thread</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="p">())</span>
+</pre></div>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">_thread</span>
+
+<span class="k">def</span> <span class="nf">core1_main</span><span class="p">():</span>
+    <span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span> <span class="c1"># 板载LED</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">led</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">led</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">900</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;message from core1&quot;</span><span class="p">)</span>
+
+<span class="n">_thread</span><span class="o">.</span><span class="n">start_new_thread</span><span class="p">(</span><span class="n">core1_main</span><span class="p">,</span> <span class="p">())</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;message from core0&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">lcd</span>
+<span class="kn">import</span> <span class="nn">_thread</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">ultrasonic</span>
+
+<span class="n">distance</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">def</span> <span class="nf">core1_main</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">distance</span>
+    <span class="n">us_sensor</span> <span class="o">=</span> <span class="n">ultrasonic</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">us_sensor</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span> <span class="c1"># 触发测量</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># 等待测量完成</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">us_sensor</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># 读取测量结果</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="n">_thread</span><span class="o">.</span><span class="n">start_new_thread</span><span class="p">(</span><span class="n">core1_main</span><span class="p">,</span> <span class="p">())</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;距离: </span><span class="si">%.1f</span><span class="s2">cm&quot;</span><span class="o">%</span><span class="n">distance</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../modules/index.html" class="btn btn-neutral float-right" title="拓展模块" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../controller/display.html" class="btn btn-neutral float-left" title="4. 液晶显示屏" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Buintel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

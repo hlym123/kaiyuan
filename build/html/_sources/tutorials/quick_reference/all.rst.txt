@@ -1,0 +1,131 @@
+快速开始 
+========================================
+
+
+延时和计时 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    import time
+
+    time.sleep(1)           # sleep for 1 second
+    time.sleep_ms(500)      # sleep for 500 milliseconds
+    time.sleep_us(10)       # sleep for 10 microseconds
+    start = time.ticks_ms() # get millisecond counter
+    delta = time.ticks_diff(time.ticks_ms(), start) # compute time difference
+        
+    import time
+
+    delay_time = 500
+    deadline = time.ticks_add(time.ticks_ms(), delay_time) # 计算
+    while True:
+        if time.ticks_diff(time.ticks_ms(), deadline) > 0:
+            deadline = time.ticks_add(time.ticks_ms(), delay_time)
+
+
+定时器   
+++++++++++++++++++++++++++++++++++++++++++++++++++++++    
+
+::
+
+    from machine import Timer
+
+    tim1 = Timer(period=1000, mode=Timer.PERIODIC, callback=lambda t:print("timer 1"))
+    tim2 = Timer(period=500, mode=Timer.PERIODIC, callback=lambda t:print("timer 2"))
+
+
+引脚控制     
+++++++++++++++++++++++++++++++++++++++++++++++++++++++    
+
+::
+
+    from machine import Pin
+
+    p0 = Pin(0, Pin.OUT)    # create output pin on GPIO0
+    p0.on()                 # set pin to "on" (high) level
+    p0.off()                # set pin to "off" (low) level
+    p0.value(1)             # set pin to on/high
+
+    p2 = Pin(2, Pin.IN)     # create input pin on GPIO2
+    print(p2.value())       # get value, 0 or 1
+
+    p4 = Pin(4, Pin.IN, Pin.PULL_UP) # enable internal pull-up resistor
+    p5 = Pin(5, Pin.OUT, value=1) # set pin high on creation
+    
+    
+串口控制  
+++++++++++++++++++++++++++++++++++++++++++++++++++++++    
+
+::
+
+    from machine import UART, Pin
+    uart1 = UART(1, baudrate=9600, tx=Pin(4), rx=Pin(5))
+    uart1.write('hello')  # write 5 bytes
+    uart1.read(5)         # read up to 5 bytes    
+    
+    
+模数转换   
+++++++++++++++++++++++++++++++++++++++++++++++++++++++    
+
+::
+
+    from machine import ADC, Pin
+    adc = ADC(Pin(26))     # create ADC object on ADC pin
+    adc.read_u16()         # read value, 0-65535 across voltage range 0.0v - 3.3v
+
+    
+实时时钟   
+++++++++++++++++++++++++++++++++++++++++++++++++++++++    
+
+::
+
+    from machine import RTC
+
+    rtc = RTC()
+    rtc.datetime((2017, 8, 23, 2, 12, 48, 0, 0)) # set a specific date and
+                                         # time, eg. 2017/8/23 1:12:48
+    rtc.datetime() # get date and time
+
+看门狗    
+++++++++++++++++++++++++++++++++++++++++++++++++++++++        
+
+::
+    
+    from machine import WDT
+
+    # enable the WDT with a timeout of 5s (1s is the minimum)
+    wdt = WDT(timeout=5000)
+    wdt.feed()
+    
+多核支持 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++    
+
+::
+
+    import time, _thread, machine
+
+    def task():
+        led = machine.Pin(25, machine.Pin.OUT)
+        while True:
+            led.high()
+            time.sleep_ms(100)
+            led.low()
+            time.sleep_ms(900)
+            print("led blink")
+       
+
+    _thread.start_new_thread(task, ())
+
+    while True:
+        print("message from core0")
+        time.sleep_ms(100)
+ 
+            
+
+
+
+
+
+    
+    
