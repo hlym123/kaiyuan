@@ -1,11 +1,14 @@
-控制器 
-========================================
+主控
+======================================================  
 
 .. toctree::
    :maxdepth: 2
- 
-   MicroPython Pico/intro.rst
+   :numbered:
+  
+   quickstart.rst
+   button.rst 
+   buzzer.rst 
+   display.rst
 
- 
-
+    
  

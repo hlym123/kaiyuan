@@ -5,7 +5,7 @@
 延时和计时 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. sourcecode:: ipython
+::
 
     '''
      导入 time 模块 
@@ -43,9 +43,8 @@
     delta = time.ticks_diff(ticks1, ticks2)  
 
     
-**Example**: 通过 time.ticks_ms() 实现一定时间的延时 
-    
-.. sourcecode:: ipython
+**Example**: 通过 time.ticks_ms() 实现一定时间的延时   
+::
   
     import time
 
@@ -88,7 +87,7 @@
     '''
     tim = Timer(period, mode=Timer.PERIODIC, callback)
     
-**Example**:     
+**Example**: 定时器使用     
 ::
 
     import time
@@ -124,11 +123,11 @@
      Pin 类
      @id: 引脚号
      @mode: 模式
-        Pin.IN 输入 
+        Pin.IN  输入 
         Pin.OUT 输出 
      @pull:
         Pin.None 
-        Pin.PULL_UP      上拉
+        Pin.PULL_UP   上拉
         Pin.PULL_DOWN 下拉
     '''
     class machine.Pin(id, mode=- 1, pull=- 1)
@@ -145,9 +144,9 @@
      @handle: 中断回调
      @trigger: 中断触发方式
         Pin.IRQ_FALLING     下降沿（高电平到低电平变化）
-        Pin.IRQ_RISING         上升沿（低电平到高电平变化）
-        Pin.IRQ_LOW_LEVEL     低电平
-        Pin.IRQ_HIGH_LEVEL    高电平
+        Pin.IRQ_RISING      上升沿（低电平到高电平变化）
+        Pin.IRQ_LOW_LEVEL   低电平
+        Pin.IRQ_HIGH_LEVEL  高电平
     '''
     Pin.irq(handler=None, trigger=Pin.IRQ_FALLING|Pin.IRQ_RISING)
 
@@ -212,29 +211,211 @@
      
             
 串口控制  
-++++++++++++++++++++++++++++++++++++++++++++++++++++++    
-待完善...
+++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+(UART, Universal Asynchronous Receiver/Transmitter)
+
+**应用编程接口说明**
+::
+    '''
+     从 machine 中导入 UART 
+    '''
+    from machine import UART
+    
+    '''
+     类 UART
+     @id: 0、1
+     @baudrate: 波特率  
+        9600 
+        57600 
+        115200
+        ... 
+     @tx: 发送引脚 
+     @rx：接收引脚 
+    '''
+    class machine.UART(id, baudrate, tx, rx)
+    
+    '''
+     读取接收缓冲区数据大小
+     @return 缓冲区接收数据字节数（大于1为接收到数据） 
+    '''
+    UART.any()
+    
+    '''
+     读取数据 
+     @nbytes 读取数据大小（可选参数，为0表示读取所有数据）
+    '''
+    UART.read([nbytes])
+    
+    '''
+     读取数据到buf中
+     @buf 读取的数据
+     @nbytes 读取数据大小（可选参数，为0表示读取所有数据）
+     @return 实际读取数据的字计数
+    '''
+    UART.readinto(buf[, nbytes])
+    
+    '''
+     读取一行数据（遇到换行符结束）
+     @return 读取到的数据 
+    '''
+    UART.readline()
+    
+    '''
+     写数据 
+     @buf 要发送的数据 
+     @return 实际发送的字节数 
+    '''
+    UART.write(buf)
+    
+**Example:** 接收数据 
 ::
 
     from machine import UART, Pin
-    uart1 = UART(1, baudrate=9600, tx=Pin(4), rx=Pin(5))
-    uart1.write('hello')  # write 5 bytes
-    uart1.read(5)         # read up to 5 bytes    
     
+    # 开元主控端口1 
+    uart0 = UART(0, baudrate=115200, tx=Pin(16), rx=Pin(17)) 
     
-模数转换   
-++++++++++++++++++++++++++++++++++++++++++++++++++++++    
-待完善...
+    # 开元主控端口7
+    #uart1 = UART(1, baudrate=115200, tx=Pin(4), rx=Pin(5)) 
+    
+    uart0.write('hello')   
+    while True:
+        if uart0.any() > 0 # 若接收到数据 
+            rx = uart0.read() # 读取数据  
+            print(rx)
+    
+集成电路总线 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++   
+(I2C, Inter-Integrated Circuit)
+
+**应用编程接口说明** 
 ::
 
-    from machine import ADC, Pin
-    adc = ADC(Pin(26))     # create ADC object on ADC pin
-    adc.read_u16()         # read value, 0-65535 across voltage range 0.0v - 3.3v
-
+    '''
+     从 machine 中导入 SoftI2C 
+    '''
+    from machine import SoftI2C
     
+    '''
+     类 SoftI2C
+     @scl 串行时钟 
+     @sda 串行数据
+     @freq 传输速率（最大400000）
+     @timeout 可选参数，应答超时时间（ms）
+    '''
+    class machine.SoftI2C(scl=Pin(scl), sda=Pin(sda), freq=100000, [timeout])
+    
+    '''
+     扫描设备
+     @return 扫描结果 
+    '''
+    SoftI2C.scan()
+    
+    '''
+     写数据 
+     @addr 设备地址 
+     @buf 要写入的数据        
+    '''
+    SoftI2C.writeto(addr, buf)
+    
+    '''
+     写数据到寄存器中 
+     @addr 设备地址
+     @memaddr 寄存器地址 
+     @buf 要写入的数据 
+    '''
+    SoftI2C.writeto_mem(addr, memaddr, buf)
+    
+    ''' 
+     读数据到 buf 中 
+     @addr 设备地址 
+     @buf 读取的数据（读取数据字节数由buf长度决定） 
+        buf 为 bytearray() 对象 
+        
+     Example:
+        nbytes = 4
+        buf = bytearray(nbytes)
+        i2c.readfrom_into(0x68, buf) # 读取4字节数据 
+    '''
+    SoftI2C.readfrom_into(addr, buf)
+    
+    '''
+     读取寄存器数据到 buf 中 
+     @addr 设备地址 
+     @memaddr 寄存器地址 
+     @buf 读取的数据（读取数据字节数由buf长度决定）
+
+     Example:
+        nbytes = 4
+        buf = bytearray(nbytes)
+        i2c.readfrom_mem_into(0x68, 0x01, buf) # 读取4字节数据(寄存器地址自动递增)      
+    '''
+    SoftI2C.readfrom_mem_into(addr, memaddr, buf)
+
+**Example:** 扫描发现总线中的设备    
+:: 
+
+    from machine import SoftI2C, Pin
+    from openaie import get_port_pin
+
+    # 端口6 
+    scl_pin = get_port_pin(6, 1)
+    sda_pin = get_port_pin(6, 2)
+
+    # 创建并初始化I2C总线
+    i2c = SoftI2C(scl=Pin(scl_pin), sda=Pin(sda_pin), freq=100000)
+
+    res = i2c.scan() # 扫描发现总线中的设备
+    cnt = 1
+    for r in res: # 逐个结果打印 
+        print("发现设备%d，地址：%#x"%(cnt, r))
+        cnt += 1
+   
+模数转换   
+++++++++++++++++++++++++++++++++++++++++++++++++++++++    
+(ADC, Analog-to-Digital Converter)
+ADC检测电压不能超过3.3V
+
+**应用编程接口说明** 
+::
+
+    '''
+     从 machine 中导入 ADC 
+    '''
+    from machine import ADC
+    
+    '''
+     创建 ADC 对象 
+     @pin_num 引脚号 
+        26(ADC0) -- 开元主控端口3，信号线2
+        27(ADC1) -- 开元主控端口3，信号线1 
+        28(ADC2) -- 开元主控端口4，信号线1  
+    '''
+    adc = ADC(Pin(pin_num))     
+    
+    '''
+     读取ADC转换结果
+     @return 0-65535 对应 0.0~3.3V
+    '''
+    adc.read_u16()     
+
+**Example:** 读取打印ADC结果     
+::
+
+    from machine import ADC, Pin 
+    import time  
+
+    adc1 = ADC(Pin(27))
+    while True:
+        r = adc1.read_u16()
+        print("ADC value: ", r)
+        time.sleep_ms(100)
+
+
 实时时钟
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++    
-(RTC, Real Time Clock)   
+(RTC, Real Time Clock)  
+ 
 ::
     
     '''

@@ -84,16 +84,17 @@
               <p class="caption"><span class="caption-text">教程</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">简介</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../controller/intro.html">主控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controller/index.html">主控</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">快速开始</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">延时和计时</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">定时器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">引脚控制</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">串口控制</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">模数转换</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">实时时钟</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">看门狗定时器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">多核支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">集成电路总线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">模数转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">实时时钟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">看门狗定时器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">多核支持</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/index.html">拓展模块</a></li>
@@ -174,7 +175,7 @@
 <h1>快速开始<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
 <h2>延时和计时<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 导入 time 模块</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -211,15 +212,15 @@
 </pre></div>
 </div>
 <p><strong>Example</strong>: 通过 time.ticks_ms() 实现一定时间的延时</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 
 <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">delay_time</span> <span class="o">=</span> <span class="mi">500</span> <span class="c1"># 500ms</span>
 <span class="n">deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">delay_time</span><span class="p">)</span>
-<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">deadline</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">delay_time</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;count: &quot;</span><span class="p">,</span> <span class="n">cnt</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;count: &quot;</span><span class="p">,</span> <span class="n">cnt</span><span class="p">)</span>
         <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
@@ -250,7 +251,7 @@
 <span class="n">tim</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="n">period</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Example</strong>:</p>
+<p><strong>Example</strong>: 定时器使用</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">Timer</span>
 
@@ -282,11 +283,11 @@
 <span class="sd"> Pin 类</span>
 <span class="sd"> @id: 引脚号</span>
 <span class="sd"> @mode: 模式</span>
-<span class="sd">    Pin.IN 输入</span>
+<span class="sd">    Pin.IN  输入</span>
 <span class="sd">    Pin.OUT 输出</span>
 <span class="sd"> @pull:</span>
 <span class="sd">    Pin.None</span>
-<span class="sd">    Pin.PULL_UP      上拉</span>
+<span class="sd">    Pin.PULL_UP   上拉</span>
 <span class="sd">    Pin.PULL_DOWN 下拉</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="k">class</span> <span class="nc">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">mode</span><span class="o">=-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pull</span><span class="o">=-</span> <span class="mi">1</span><span class="p">)</span>
@@ -303,9 +304,9 @@
 <span class="sd"> @handle: 中断回调</span>
 <span class="sd"> @trigger: 中断触发方式</span>
 <span class="sd">    Pin.IRQ_FALLING     下降沿（高电平到低电平变化）</span>
-<span class="sd">    Pin.IRQ_RISING         上升沿（低电平到高电平变化）</span>
-<span class="sd">    Pin.IRQ_LOW_LEVEL     低电平</span>
-<span class="sd">    Pin.IRQ_HIGH_LEVEL    高电平</span>
+<span class="sd">    Pin.IRQ_RISING      上升沿（低电平到高电平变化）</span>
+<span class="sd">    Pin.IRQ_LOW_LEVEL   低电平</span>
+<span class="sd">    Pin.IRQ_HIGH_LEVEL  高电平</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="n">Pin</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="o">|</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_RISING</span><span class="p">)</span>
 </pre></div>
@@ -367,25 +368,202 @@
 </div>
 <div class="section" id="id5">
 <h2>串口控制<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
-<p>待完善…</p>
+<p>(UART, Universal Asynchronous Receiver/Transmitter)</p>
+<p><strong>应用编程接口说明</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 从 machine 中导入 UART</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">UART</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 类 UART</span>
+<span class="sd"> @id: 0、1</span>
+<span class="sd"> @baudrate: 波特率</span>
+<span class="sd">    9600</span>
+<span class="sd">    57600</span>
+<span class="sd">    115200</span>
+<span class="sd">    ...</span>
+<span class="sd"> @tx: 发送引脚</span>
+<span class="sd"> @rx：接收引脚</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">class</span> <span class="nc">machine</span><span class="o">.</span><span class="n">UART</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">baudrate</span><span class="p">,</span> <span class="n">tx</span><span class="p">,</span> <span class="n">rx</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 读取接收缓冲区数据大小</span>
+<span class="sd"> @return 缓冲区接收数据字节数（大于1为接收到数据）</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">UART</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 读取数据</span>
+<span class="sd"> @nbytes 读取数据大小（可选参数，为0表示读取所有数据）</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">UART</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="n">nbytes</span><span class="p">])</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 读取数据到buf中</span>
+<span class="sd"> @buf 读取的数据</span>
+<span class="sd"> @nbytes 读取数据大小（可选参数，为0表示读取所有数据）</span>
+<span class="sd"> @return 实际读取数据的字计数</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">UART</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="n">buf</span><span class="p">[,</span> <span class="n">nbytes</span><span class="p">])</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 读取一行数据（遇到换行符结束）</span>
+<span class="sd"> @return 读取到的数据</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">UART</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 写数据</span>
+<span class="sd"> @buf 要发送的数据</span>
+<span class="sd"> @return 实际发送的字节数</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">UART</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example:</strong> 接收数据</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">UART</span><span class="p">,</span> <span class="n">Pin</span>
-<span class="n">uart1</span> <span class="o">=</span> <span class="n">UART</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">9600</span><span class="p">,</span> <span class="n">tx</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">rx</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">uart1</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>  <span class="c1"># write 5 bytes</span>
-<span class="n">uart1</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>         <span class="c1"># read up to 5 bytes</span>
+
+<span class="c1"># 开元主控端口1</span>
+<span class="n">uart0</span> <span class="o">=</span> <span class="n">UART</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">tx</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span> <span class="n">rx</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">17</span><span class="p">))</span>
+
+<span class="c1"># 开元主控端口7</span>
+<span class="c1">#uart1 = UART(1, baudrate=115200, tx=Pin(4), rx=Pin(5))</span>
+
+<span class="n">uart0</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">uart0</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="c1"># 若接收到数据</span>
+        <span class="n">rx</span> <span class="o">=</span> <span class="n">uart0</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># 读取数据</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id6">
-<h2>模数转换<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
-<p>待完善…</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">ADC</span><span class="p">,</span> <span class="n">Pin</span>
-<span class="n">adc</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span>     <span class="c1"># create ADC object on ADC pin</span>
-<span class="n">adc</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>         <span class="c1"># read value, 0-65535 across voltage range 0.0v - 3.3v</span>
+<h2>集成电路总线<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>(I2C, Inter-Integrated Circuit)</p>
+<p><strong>应用编程接口说明</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 从 machine 中导入 SoftI2C</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">SoftI2C</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 类 SoftI2C</span>
+<span class="sd"> @scl 串行时钟</span>
+<span class="sd"> @sda 串行数据</span>
+<span class="sd"> @freq 传输速率（最大400000）</span>
+<span class="sd"> @timeout 可选参数，应答超时时间（ms）</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">class</span> <span class="nc">machine</span><span class="o">.</span><span class="n">SoftI2C</span><span class="p">(</span><span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">scl</span><span class="p">),</span> <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">sda</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="p">[</span><span class="n">timeout</span><span class="p">])</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 扫描设备</span>
+<span class="sd"> @return 扫描结果</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">SoftI2C</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 写数据</span>
+<span class="sd"> @addr 设备地址</span>
+<span class="sd"> @buf 要写入的数据</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">SoftI2C</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">buf</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 写数据到寄存器中</span>
+<span class="sd"> @addr 设备地址</span>
+<span class="sd"> @memaddr 寄存器地址</span>
+<span class="sd"> @buf 要写入的数据</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">SoftI2C</span><span class="o">.</span><span class="n">writeto_mem</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">memaddr</span><span class="p">,</span> <span class="n">buf</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 读数据到 buf 中</span>
+<span class="sd"> @addr 设备地址</span>
+<span class="sd"> @buf 读取的数据（读取数据字节数由buf长度决定）</span>
+<span class="sd">    buf 为 bytearray() 对象</span>
+
+<span class="sd"> Example:</span>
+<span class="sd">    nbytes = 4</span>
+<span class="sd">    buf = bytearray(nbytes)</span>
+<span class="sd">    i2c.readfrom_into(0x68, buf) # 读取4字节数据</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">SoftI2C</span><span class="o">.</span><span class="n">readfrom_into</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">buf</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 读取寄存器数据到 buf 中</span>
+<span class="sd"> @addr 设备地址</span>
+<span class="sd"> @memaddr 寄存器地址</span>
+<span class="sd"> @buf 读取的数据（读取数据字节数由buf长度决定）</span>
+
+<span class="sd"> Example:</span>
+<span class="sd">    nbytes = 4</span>
+<span class="sd">    buf = bytearray(nbytes)</span>
+<span class="sd">    i2c.readfrom_mem_into(0x68, 0x01, buf) # 读取4字节数据(寄存器地址自动递增)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">SoftI2C</span><span class="o">.</span><span class="n">readfrom_mem_into</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">memaddr</span><span class="p">,</span> <span class="n">buf</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example:</strong> 扫描发现总线中的设备</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">SoftI2C</span><span class="p">,</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">get_port_pin</span>
+
+<span class="c1"># 端口6</span>
+<span class="n">scl_pin</span> <span class="o">=</span> <span class="n">get_port_pin</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">sda_pin</span> <span class="o">=</span> <span class="n">get_port_pin</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># 创建并初始化I2C总线</span>
+<span class="n">i2c</span> <span class="o">=</span> <span class="n">SoftI2C</span><span class="p">(</span><span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">scl_pin</span><span class="p">),</span> <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">sda_pin</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span> <span class="c1"># 扫描发现总线中的设备</span>
+<span class="n">cnt</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span> <span class="c1"># 逐个结果打印</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;发现设备</span><span class="si">%d</span><span class="s2">，地址：</span><span class="si">%#x</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span> <span class="n">r</span><span class="p">))</span>
+    <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id7">
-<h2>实时时钟<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<h2>模数转换<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>(ADC, Analog-to-Digital Converter)
+ADC检测电压不能超过3.3V</p>
+<p><strong>应用编程接口说明</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 从 machine 中导入 ADC</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">ADC</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 创建 ADC 对象</span>
+<span class="sd"> @pin_num 引脚号</span>
+<span class="sd">    26(ADC0) -- 开元主控端口3，信号线2</span>
+<span class="sd">    27(ADC1) -- 开元主控端口3，信号线1</span>
+<span class="sd">    28(ADC2) -- 开元主控端口4，信号线1</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">adc</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">pin_num</span><span class="p">))</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 读取ADC转换结果</span>
+<span class="sd"> @return 0-65535 对应 0.0~3.3V</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">adc</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Example:</strong> 读取打印ADC结果</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">ADC</span><span class="p">,</span> <span class="n">Pin</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">adc1</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">27</span><span class="p">))</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">adc1</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ADC value: &quot;</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>实时时钟<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <p>(RTC, Real Time Clock)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 从 machine 导入 RTC 模块</span>
@@ -430,8 +608,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id8">
-<h2>看门狗定时器<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id9">
+<h2>看门狗定时器<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
 <p>(WDT, Watch Dog Timer)</p>
 <p>看门狗定时器是主控内一个外设功能，主要功能是当系统出现故障时，使系统复位重新运行。
 当使能看门狗定时器时，定时器的计数值不断递增，计数值大于设定值时将使系统复位。
@@ -484,8 +662,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id9">
-<h2>多核支持<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id10">
+<h2>多核支持<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
 <p>开元主控采用双核处理器</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 导入 _thread 模块</span>

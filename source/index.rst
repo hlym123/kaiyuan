@@ -7,7 +7,7 @@
    :caption: 教程
 
    tutorials/intro.rst
-   tutorials/controller/intro.rst
+   tutorials/controller/index.rst
    tutorials/quick_reference/index.rst
    tutorials/modules/index.rst
    tutorials/turtle.rst

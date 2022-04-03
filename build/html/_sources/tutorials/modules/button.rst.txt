@@ -12,9 +12,9 @@
 ::
 
     '''
-     导入 button 模块 
+     导入 button_group 模块 
     '''
-    from openaie import button
+    from openaie import button_group
 
     '''
      类：按键组 
@@ -53,7 +53,7 @@
         time.sleep_ms(100)
 
 
-**2. 按键控制开关灯**
+**2. 按键控制开关灯** 
 
 ::
 
