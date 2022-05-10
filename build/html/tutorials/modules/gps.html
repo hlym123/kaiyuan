@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>12. 卫星定位导航模块 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="13. AI模块启蒙" href="enlighten.html" />
+    <link rel="prev" title="11. 指纹识别模块" href="fingerprint.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> 开元编程开发套件
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">教程</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controller/index.html">主控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_reference/index.html">快速开始</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">拓展模块</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rgb_led.html">1. 可编程全彩LED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">2. 按键组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="potentiometer.html">3. 电位器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic.html">4. 超声波测距传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="th_sensor.html">5. 温湿度传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="light_sensor.html">6. 光照强度传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motor_fan.html">7. 电机风扇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servo.html">8. 舵机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asr.html">9. 语音识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tts.html">10. 语音合成模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fingerprint.html">11. 指纹识别模块</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">12. 卫星定位导航模块</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">12.1. 应用编程接口说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">12.2. 案例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enlighten.html">13. AI模块启蒙</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../turtle.html">海龟画图</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MicroPython 库</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../micropython/index.html">MicroPython库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">图形化编程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mixly/readme.html">图形化编程</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">开元编程开发套件</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">拓展模块</a> &raquo;</li>
+        
+      <li><span class="section-number">12. </span>卫星定位导航模块</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/tutorials/modules/gps.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">12. </span>卫星定位导航模块<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>GPS/北斗双模定位导航模块，可用于导航，定位，授时等。</p>
+<p>通信接口UART，默认波特率：9600，数据位8，停止位1。数据格式为 NEMA0183 标准，输出频率为1Hz。板载指示灯在定位成功时闪烁。</p>
+<p>定位精度10m，首次定位时间大于32秒。</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="tutorials\modules\gps.png"><img alt="tutorials\modules\gps.png" src="tutorials\modules\gps.png" style="width: 260px;" /></a>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">12.1. </span>应用编程接口说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 导入 gps 模块</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">gps</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 类：gps</span>
+<span class="sd"> 参数:</span>
+<span class="sd">    port: 端口号 -- 1或7</span>
+<span class="sd">    location_formatting: 经纬度格式</span>
+<span class="sd">        &#39;ddm&#39; -- Decimal Degree Minute (ddm) - 40° 26.767′ N</span>
+<span class="sd">        &#39;dms&#39; -- Degrees Minutes Seconds (dms) - 40° 26′ 46″ N</span>
+<span class="sd">        &#39;dd&#39;  -- Decimal Degrees (dd) - 40.446° N</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">class</span> <span class="nc">gps</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">location_formatting</span><span class="o">=</span><span class="s1">&#39;ddm&#39;</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：更新数据</span>
+<span class="sd"> @return 接收到的语句，未接收到信息返回None</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">stat</span> <span class="o">=</span> <span class="n">gps</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 变量：可见卫星数</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">gps</span><span class="o">.</span><span class="n">satellites_in_view</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 变量：使用卫星数</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">gps</span><span class="o">.</span><span class="n">satellites_in_use</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 变量：经度（字符串）</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">gps</span><span class="o">.</span><span class="n">longitude_string</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 变量：纬度（字符串）</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">gps</span><span class="o">.</span><span class="n">latitude_string</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 变量：经度（浮点数）</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">gps</span><span class="o">.</span><span class="n">longitude</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 变量：纬度（浮点数）</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">gps</span><span class="o">.</span><span class="n">latitude</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 变量：海拔（m）</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">gps</span><span class="o">.</span><span class="n">altitude</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 变量：速度（km/h）</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">gps</span><span class="o">.</span><span class="n">speed</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 变量：日期（UTC时间，北京时间+8）</span>
+<span class="sd">    日，月，年</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span> <span class="o">=</span> <span class="n">gps</span><span class="o">.</span><span class="n">date</span><span class="p">[:]</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 变量：时间戳（UTC时间，北京时间+8）</span>
+<span class="sd">    时，分，秒</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">second</span> <span class="o">=</span> <span class="n">gps</span><span class="o">.</span><span class="n">timestamp</span><span class="p">[:]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">12.2. </span>案例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p><strong>1. 信息读取显示</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">UART</span><span class="p">,</span> <span class="n">Pin</span>
+<span class="kn">import</span> <span class="nn">lcd</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span><span class="o">*</span>
+
+
+<span class="n">my_gps</span> <span class="o">=</span> <span class="n">gps</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">location_formatting</span><span class="o">=</span><span class="s1">&#39;dd&#39;</span><span class="p">)</span>
+
+<span class="n">lcd</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">set_backlight</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">sentence_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">stat</span> <span class="o">=</span> <span class="n">my_gps</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">stat</span><span class="p">:</span> <span class="c1"># 接收到语句</span>
+        <span class="c1">#print(stat)</span>
+        <span class="n">stat</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">sentence_count</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># 接收语句计数</span>
+
+        <span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+
+        <span class="c1"># 卫星信息</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;可见卫星: </span><span class="si">%s</span><span class="s1"> 颗&#39;</span><span class="o">%</span><span class="n">my_gps</span><span class="o">.</span><span class="n">satellites_in_view</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;使用卫星: </span><span class="si">%s</span><span class="s1"> 颗&#39;</span><span class="o">%</span><span class="n">my_gps</span><span class="o">.</span><span class="n">satellites_in_use</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="c1"># 位置</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="s1">&#39;经度: &#39;</span><span class="o">+</span><span class="n">my_gps</span><span class="o">.</span><span class="n">longitude_string</span><span class="p">(),</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="s1">&#39;纬度: &#39;</span><span class="o">+</span><span class="n">my_gps</span><span class="o">.</span><span class="n">latitude_string</span><span class="p">(),</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="s1">&#39;海拔: </span><span class="si">%d</span><span class="s1"> m&#39;</span><span class="o">%</span><span class="n">my_gps</span><span class="o">.</span><span class="n">altitude</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="s1">&#39;速度: </span><span class="si">%.2f</span><span class="s1"> km/h&#39;</span><span class="o">%</span><span class="n">my_gps</span><span class="o">.</span><span class="n">speed</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="c1"># 日期 UTC</span>
+        <span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span> <span class="o">=</span> <span class="n">my_gps</span><span class="o">.</span><span class="n">date</span><span class="p">[:]</span>
+        <span class="n">date_string</span> <span class="o">=</span> <span class="s2">&quot;20</span><span class="si">%02d</span><span class="s2">/</span><span class="si">%02d</span><span class="s2">/</span><span class="si">%02d</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="n">date_string</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="c1"># 时间 UTC</span>
+        <span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">second</span> <span class="o">=</span> <span class="n">my_gps</span><span class="o">.</span><span class="n">timestamp</span><span class="p">[:]</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="s2">&quot; </span><span class="si">%02d</span><span class="s2">:</span><span class="si">%02d</span><span class="s2">:</span><span class="si">%02d</span><span class="s2"> &quot;</span><span class="o">%</span><span class="p">(</span><span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">second</span><span class="p">)</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">110</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;count: </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span>  <span class="n">sentence_count</span><span class="p">),</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+
+        <span class="c1">#lcd.draw_string(10, 270, &#39;东经: %.5f&#39;%my_gps.longitude[0], fc=(0,0,255), bc=(0,0,0))</span>
+        <span class="c1">#lcd.draw_string(10, 290, &#39;北纬: %.5f&#39;%my_gps.latitude[0], fc=(0,0,255), bc=(0,0,0))</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="enlighten.html" class="btn btn-neutral float-right" title="13. AI模块启蒙" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fingerprint.html" class="btn btn-neutral float-left" title="11. 指纹识别模块" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Buintel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

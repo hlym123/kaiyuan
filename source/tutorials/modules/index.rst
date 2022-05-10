@@ -16,6 +16,7 @@
    asr.rst
    tts.rst 
    fingerprint.rst
+   gps.rst 
    enlighten.rst 
 
 

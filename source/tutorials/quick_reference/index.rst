@@ -405,7 +405,7 @@ ADC检测电压不能超过3.3V
     from machine import ADC, Pin 
     import time  
 
-    adc1 = ADC(Pin(27))
+    adc1 = ADC(Pin(27)) # 开元主控端口3，信号线1 
     while True:
         r = adc1.read_u16()
         print("ADC value: ", r)

@@ -100,7 +100,7 @@
             elif res == 25 or res == 26 :  # 对应命令词：关灯，关闭灯
                 rgb.set(0, (0,0,0))
                 rgb.display()
-            time.sleep_ms(100)
+        time.sleep_ms(100)
 
             
 **2. 语音识别控制风扇** 
@@ -124,7 +124,7 @@
             elif res >= 52 and res <= 56: # 风速设置
                 m.set((res-51)*20)
                 print("speed: ", (res-51)*20)
-            time.sleep_ms(100)
+        time.sleep_ms(100)
 
 
 

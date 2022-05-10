@@ -14,19 +14,19 @@ AI模块启蒙
     '''
      导入 enlighten 模块 
     '''
-    from openaie import enlighten
+    from openaie import enlighten_com
     
     '''
      类：AI模块启蒙
      参数:
         port: 端口号(1或7) 
     '''
-    class enlighten(port)
+    class enlighten_com(port)
     
     '''
      等待模块连接
     '''
-    enlighten.wait_connect()
+    enlighten_com.wait_connect()
     
     '''
      设置模块工作模式
@@ -34,23 +34,27 @@ AI模块启蒙
         "qrcode scan" -- 二维码扫描 
         "mask detect" -- 口罩检测 
         "image class" -- 图像检测分类 
+        "color recognition" -- 颜色识别 
     '''
-    enlighten.set_mode(m)
+    enlighten_com.set_mode(m)
     
     '''
      请求数据
      @m:
         "qrcode"      -- 二维码信息 
         "mask detect" -- 口罩检测结果 
-        "image class" -- 图像检测分类结果  
+        "image class" -- 图像检测分类结果 
+        "red blob"      -- 红色色块 
+        "green blob"  -- 蓝色色块 
+        "blue blob"      -- 绿色色块 
     '''
-    enlighten.request_data(m)
+    enlighten_com.request_data(m)
     
     '''
      读取二维码扫描结果
      @return 二维码信息 
     '''
-    enlighten.read_qrcode_info()
+    enlighten_com.read_qrcode_info()
     
     '''
      读取色块信息
@@ -61,16 +65,16 @@ AI模块启蒙
         pixels 为色块内像素数 
     
      Example:
-        x, y, w, h, pixels = enlighten.read_blob_info()
+        x, y, w, h, pixels = enlighten_com.read_blob_info()
         # 或者 
-        res = enlighten.read_blob_info()
+        res = enlighten_com.read_blob_info()
         x = res[0]
         y = res[1]
         w = res[2]
         h = res[3]
         pixels = res[4]
     '''
-    enlighten.read_blob_info()
+    enlighten_com.read_blob_info()
     
     
     '''
@@ -85,12 +89,12 @@ AI模块启蒙
      Example:
         x, y, w, h, classid, confidence = enlighten.read_detect_info()
         # 或者 
-        res = enlighten.read_detect_info()
+        res = enlighten_com.read_detect_info()
         bbox = res[0:4]      # 边界框参数
         classid = res[4]     # 分类结果
         confidence = res[5]  # 置信度 
     '''
-    enlighten.read_detect_info()
+    enlighten_com.read_detect_info()
   
     
     
@@ -115,17 +119,19 @@ AI模块启蒙
 
     while True:
         if dev.request_data("qrcode") : # 请求二维码扫描结果 
-            info = dev.get_qrcode_info()
+            info = dev.read_qrcode_info()
             lcd.clear(color=(0,0,0))
             lcd.draw_string(10, 10, info, fc=(0,0,255), bc=(0,0,0))
             lcd.display()
         time.sleep_ms(200)
     
 **2. 口罩检测**
+
 口罩检查模型的分类结果中，classid为0表示没有戴口罩，1表示戴了口罩。
 
 分类标签映射 label_map = {0: 'unmask', 1: 'mask'}
 
+**Example:**
 ::
 
     import time, lcd
@@ -144,8 +150,8 @@ AI模块启蒙
 
     last_play_time = 0
     while True:
-        if dev.request_data("mask detect") : # 请求二维码扫描结果 
-            res = dev.get_mask_detect_info()
+        if dev.request_data("mask detect") : # 请求口罩检测结果 
+            res = dev.read_detect_info()
             classid = res[4] # 分类结果
             conf = res[5]    # 可信度
             if (classid == 0) :
@@ -194,7 +200,7 @@ AI模块启蒙
                  18:'train',
                  19:'tetevision'}
                 
-使用案例
+**Example:** 
 
 ::
 
@@ -219,7 +225,7 @@ AI模块启蒙
     last_play_time = 0
     while True:
         if dev.request_data("image class") : # 请求二维码扫描结果 
-            res = dev.get_image_class_info()
+            res = dev.read_detect_info()
             info = "识别为: %s, 可信度: %d%%"%(label[res[4]], res[5]*100)
             delta = time.ticks_diff(time.ticks_ms(), last_play_time) 
             if (delta > 2000): # 播放间隔大于2S
@@ -229,6 +235,24 @@ AI模块启蒙
             lcd.draw_string(10, 10, info, fc=(0,0,255), bc=(0,0,0))
             lcd.display()
         time.sleep_ms(200)
+
+**4. 颜色识别**
+
+**Example:** 识别色块
+::
+
+    import time, lcd
+    from openaie import *
+
+    dev = enlighten_com(1)            # 启蒙模块连接到端口1
+    dev.wait_connect()                # 等待模块链连接
+    dev.set_mode("color recognition") # 设为颜色识别描模式
+
+    while True:
+        if dev.request_data("red blob") : # 请求红色色块结果 
+            x, y, w, h, pixels = dev.read_blob_info()
+            print("coordiante: %d, %d pixels: %d"%(x, y, pixels))
+        time.sleep_ms(100)
 
 
 ------------------------------------------------------
