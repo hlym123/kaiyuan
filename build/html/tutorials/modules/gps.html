@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>12. 卫星定位导航模块 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
+  <title>13. 卫星定位导航模块 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="13. AI模块启蒙" href="enlighten.html" />
-    <link rel="prev" title="11. 指纹识别模块" href="fingerprint.html" /> 
+    <link rel="next" title="14. AI模块启蒙" href="enlighten.html" />
+    <link rel="prev" title="12. 指纹识别模块" href="fingerprint.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,15 +95,16 @@
 <li class="toctree-l2"><a class="reference internal" href="light_sensor.html">6. 光照强度传感器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="motor_fan.html">7. 电机风扇</a></li>
 <li class="toctree-l2"><a class="reference internal" href="servo.html">8. 舵机</a></li>
-<li class="toctree-l2"><a class="reference internal" href="asr.html">9. 语音识别模块</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tts.html">10. 语音合成模块</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fingerprint.html">11. 指纹识别模块</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">12. 卫星定位导航模块</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">12.1. 应用编程接口说明</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">12.2. 案例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_ch_servo.html">9. 多路舵机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asr.html">10. 语音识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tts.html">11. 语音合成模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fingerprint.html">12. 指纹识别模块</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">13. 卫星定位导航模块</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">13.1. 应用编程接口说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">13.2. 案例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="enlighten.html">13. AI模块启蒙</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enlighten.html">14. AI模块启蒙</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../turtle.html">海龟画图</a></li>
@@ -162,7 +163,7 @@
         
           <li><a href="index.html">拓展模块</a> &raquo;</li>
         
-      <li><span class="section-number">12. </span>卫星定位导航模块</li>
+      <li><span class="section-number">13. </span>卫星定位导航模块</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -182,19 +183,16 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1><span class="section-number">12. </span>卫星定位导航模块<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1><span class="section-number">13. </span>卫星定位导航模块<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>GPS/北斗双模定位导航模块，可用于导航，定位，授时等。</p>
 <p>通信接口UART，默认波特率：9600，数据位8，停止位1。数据格式为 NEMA0183 标准，输出频率为1Hz。板载指示灯在定位成功时闪烁。</p>
 <p>定位精度10m，首次定位时间大于32秒。</p>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="tutorials\modules\gps.png"><img alt="tutorials\modules\gps.png" src="tutorials\modules\gps.png" style="width: 260px;" /></a>
-</div>
 <div class="section" id="id2">
-<h2><span class="section-number">12.1. </span>应用编程接口说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2><span class="section-number">13.1. </span>应用编程接口说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd"> 导入 gps 模块</span>
+<span class="sd"> 导入 bds 模块</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">gps</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">bds</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 类：gps</span>
@@ -205,84 +203,83 @@
 <span class="sd">        &#39;dms&#39; -- Degrees Minutes Seconds (dms) - 40° 26′ 46″ N</span>
 <span class="sd">        &#39;dd&#39;  -- Decimal Degrees (dd) - 40.446° N</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="k">class</span> <span class="nc">gps</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">location_formatting</span><span class="o">=</span><span class="s1">&#39;ddm&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">bds</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">location_formatting</span><span class="o">=</span><span class="s1">&#39;ddm&#39;</span><span class="p">)</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 方法：更新数据</span>
-<span class="sd"> @return 接收到的语句，未接收到信息返回None</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">stat</span> <span class="o">=</span> <span class="n">gps</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+    <span class="n">bds</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 变量：可见卫星数</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">gps</span><span class="o">.</span><span class="n">satellites_in_view</span>
+<span class="n">bds</span><span class="o">.</span><span class="n">satellites_in_view</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 变量：使用卫星数</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">gps</span><span class="o">.</span><span class="n">satellites_in_use</span>
+<span class="n">bds</span><span class="o">.</span><span class="n">satellites_in_use</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 变量：经度（字符串）</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">gps</span><span class="o">.</span><span class="n">longitude_string</span>
+<span class="n">bds</span><span class="o">.</span><span class="n">longitude_string</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 变量：纬度（字符串）</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">gps</span><span class="o">.</span><span class="n">latitude_string</span>
+<span class="n">bds</span><span class="o">.</span><span class="n">latitude_string</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 变量：经度（浮点数）</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">gps</span><span class="o">.</span><span class="n">longitude</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">bds</span><span class="o">.</span><span class="n">longitude</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 变量：纬度（浮点数）</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">gps</span><span class="o">.</span><span class="n">latitude</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">bds</span><span class="o">.</span><span class="n">latitude</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 变量：海拔（m）</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">gps</span><span class="o">.</span><span class="n">altitude</span>
+<span class="n">bds</span><span class="o">.</span><span class="n">altitude</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 变量：速度（km/h）</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">gps</span><span class="o">.</span><span class="n">speed</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">bds</span><span class="o">.</span><span class="n">speed</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 变量：日期（UTC时间，北京时间+8）</span>
 <span class="sd">    日，月，年</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span> <span class="o">=</span> <span class="n">gps</span><span class="o">.</span><span class="n">date</span><span class="p">[:]</span>
+<span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span> <span class="o">=</span> <span class="n">bds</span><span class="o">.</span><span class="n">date</span><span class="p">[:]</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 变量：时间戳（UTC时间，北京时间+8）</span>
 <span class="sd">    时，分，秒</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">second</span> <span class="o">=</span> <span class="n">gps</span><span class="o">.</span><span class="n">timestamp</span><span class="p">[:]</span>
+<span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">second</span> <span class="o">=</span> <span class="n">bds</span><span class="o">.</span><span class="n">timestamp</span><span class="p">[:]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id3">
-<h2><span class="section-number">12.2. </span>案例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2><span class="section-number">13.2. </span>案例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p><strong>1. 信息读取显示</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">UART</span><span class="p">,</span> <span class="n">Pin</span>
 <span class="kn">import</span> <span class="nn">lcd</span>
 <span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span><span class="o">*</span>
 
 
-<span class="n">my_gps</span> <span class="o">=</span> <span class="n">gps</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">location_formatting</span><span class="o">=</span><span class="s1">&#39;dd&#39;</span><span class="p">)</span>
+<span class="n">my_gps</span> <span class="o">=</span> <span class="n">bds</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">location_formatting</span><span class="o">=</span><span class="s1">&#39;dd&#39;</span><span class="p">)</span>
 
 <span class="n">lcd</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">lcd</span><span class="o">.</span><span class="n">set_backlight</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">sentence_count</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">stat</span> <span class="o">=</span> <span class="n">my_gps</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+    <span class="n">stat</span> <span class="o">=</span> <span class="n">my_gps</span><span class="o">.</span><span class="n">update</span><span class="p">()</span> <span class="c1"># 更新数据</span>
     <span class="k">if</span> <span class="n">stat</span><span class="p">:</span> <span class="c1"># 接收到语句</span>
         <span class="c1">#print(stat)</span>
         <span class="n">stat</span> <span class="o">=</span> <span class="kc">None</span>
@@ -326,10 +323,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="enlighten.html" class="btn btn-neutral float-right" title="13. AI模块启蒙" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="enlighten.html" class="btn btn-neutral float-right" title="14. AI模块启蒙" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="fingerprint.html" class="btn btn-neutral float-left" title="11. 指纹识别模块" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="fingerprint.html" class="btn btn-neutral float-left" title="12. 指纹识别模块" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

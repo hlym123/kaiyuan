@@ -14,9 +14,9 @@ GPS/北斗双模定位导航模块，可用于导航，定位，授时等。
 ::
 
     '''
-     导入 gps 模块 
+     导入 bds 模块 
     '''
-    from openaie import gps
+    from openaie import bds
     
     '''
      类：gps
@@ -27,65 +27,64 @@ GPS/北斗双模定位导航模块，可用于导航，定位，授时等。
             'dms' -- Degrees Minutes Seconds (dms) - 40° 26′ 46″ N
             'dd'  -- Decimal Degrees (dd) - 40.446° N
     '''
-    class gps(port, location_formatting='ddm')
+    class bds(port, location_formatting='ddm')
     
     '''
      方法：更新数据 
-     @return 接收到的语句，未接收到信息返回None
     '''
-    stat = gps.update()
+	bds.update()
     
     '''
      变量：可见卫星数 
     '''
-    gps.satellites_in_view
+    bds.satellites_in_view
     
     '''
      变量：使用卫星数 
     '''
-    gps.satellites_in_use
+    bds.satellites_in_use
     
     '''
      变量：经度（字符串）
     '''
-    gps.longitude_string
+    bds.longitude_string
     
     '''
      变量：纬度（字符串）
     '''
-    gps.latitude_string
+    bds.latitude_string
     
     '''
      变量：经度（浮点数）
     '''
-    gps.longitude[0]
+    bds.longitude[0]
     
     '''
      变量：纬度（浮点数）
     '''
-    gps.latitude[0]
+    bds.latitude[0]
     
     '''
      变量：海拔（m）
     '''
-    gps.altitude
+    bds.altitude
     
     '''
      变量：速度（km/h）
     '''
-    gps.speed[2]
+    bds.speed[2]
     
     '''
      变量：日期（UTC时间，北京时间+8）
         日，月，年
     '''
-    day, month, year = gps.date[:]
+    day, month, year = bds.date[:]
     
     '''
      变量：时间戳（UTC时间，北京时间+8）
         时，分，秒
     '''
-    hour, minute, second = gps.timestamp[:]
+    hour, minute, second = bds.timestamp[:]
     
  
 案例
@@ -100,7 +99,7 @@ GPS/北斗双模定位导航模块，可用于导航，定位，授时等。
     from openaie import*
 
 
-    my_gps = gps(port=1, location_formatting='dd')
+    my_gps = bds(port=1, location_formatting='dd')
 
     lcd.rotation(0)
     lcd.set_backlight(100)

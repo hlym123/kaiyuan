@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>11. 指纹识别模块 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
+  <title>12. 指纹识别模块 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="12. 卫星定位导航模块" href="gps.html" />
-    <link rel="prev" title="10. 语音合成模块" href="tts.html" /> 
+    <link rel="next" title="13. 卫星定位导航模块" href="gps.html" />
+    <link rel="prev" title="11. 语音合成模块" href="tts.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,15 +95,16 @@
 <li class="toctree-l2"><a class="reference internal" href="light_sensor.html">6. 光照强度传感器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="motor_fan.html">7. 电机风扇</a></li>
 <li class="toctree-l2"><a class="reference internal" href="servo.html">8. 舵机</a></li>
-<li class="toctree-l2"><a class="reference internal" href="asr.html">9. 语音识别模块</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tts.html">10. 语音合成模块</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">11. 指纹识别模块</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">11.1. 应用编程接口说明</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">11.2. 案例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_ch_servo.html">9. 多路舵机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asr.html">10. 语音识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tts.html">11. 语音合成模块</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">12. 指纹识别模块</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">12.1. 应用编程接口说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">12.2. 案例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gps.html">12. 卫星定位导航模块</a></li>
-<li class="toctree-l2"><a class="reference internal" href="enlighten.html">13. AI模块启蒙</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gps.html">13. 卫星定位导航模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enlighten.html">14. AI模块启蒙</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../turtle.html">海龟画图</a></li>
@@ -162,7 +163,7 @@
         
           <li><a href="index.html">拓展模块</a> &raquo;</li>
         
-      <li><span class="section-number">11. </span>指纹识别模块</li>
+      <li><span class="section-number">12. </span>指纹识别模块</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -182,9 +183,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1><span class="section-number">11. </span>指纹识别模块<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1><span class="section-number">12. </span>指纹识别模块<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
-<h2><span class="section-number">11.1. </span>应用编程接口说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2><span class="section-number">12.1. </span>应用编程接口说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 导入 fingerprint_sensor 模块</span>
 <span class="sd">&#39;&#39;&#39;</span>
@@ -217,7 +218,7 @@
 </div>
 </div>
 <div class="section" id="id3">
-<h2><span class="section-number">11.2. </span>案例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2><span class="section-number">12.2. </span>案例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p><strong>1. 指纹录入与识别</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">button1</span><span class="p">,</span> <span class="n">button2</span><span class="p">,</span> <span class="n">fingerprint_sensor</span>
@@ -262,10 +263,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gps.html" class="btn btn-neutral float-right" title="12. 卫星定位导航模块" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gps.html" class="btn btn-neutral float-right" title="13. 卫星定位导航模块" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tts.html" class="btn btn-neutral float-left" title="10. 语音合成模块" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tts.html" class="btn btn-neutral float-left" title="11. 语音合成模块" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

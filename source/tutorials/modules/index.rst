@@ -13,6 +13,7 @@
    light_sensor.rst
    motor_fan.rst
    servo.rst
+   multi_ch_servo.rst
    asr.rst
    tts.rst 
    fingerprint.rst

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>9. 语音识别模块 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
+  <title>10. 语音识别模块 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="10. 语音合成模块" href="tts.html" />
-    <link rel="prev" title="8. 舵机" href="servo.html" /> 
+    <link rel="next" title="11. 语音合成模块" href="tts.html" />
+    <link rel="prev" title="9. 多路舵机" href="multi_ch_servo.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,18 +95,19 @@
 <li class="toctree-l2"><a class="reference internal" href="light_sensor.html">6. 光照强度传感器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="motor_fan.html">7. 电机风扇</a></li>
 <li class="toctree-l2"><a class="reference internal" href="servo.html">8. 舵机</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">9. 语音识别模块</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">9.1. “唤醒词”和“命令词”</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">9.2. 自学习模式</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">9.3. 应用编程接口说明</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">9.4. 案例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">9.5. 语音识别命令词表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_ch_servo.html">9. 多路舵机</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">10. 语音识别模块</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">10.1. “唤醒词”和“命令词”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">10.2. 自学习模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">10.3. 应用编程接口说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">10.4. 案例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">10.5. 语音识别命令词表</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="tts.html">10. 语音合成模块</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fingerprint.html">11. 指纹识别模块</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gps.html">12. 卫星定位导航模块</a></li>
-<li class="toctree-l2"><a class="reference internal" href="enlighten.html">13. AI模块启蒙</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tts.html">11. 语音合成模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fingerprint.html">12. 指纹识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gps.html">13. 卫星定位导航模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enlighten.html">14. AI模块启蒙</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../turtle.html">海龟画图</a></li>
@@ -165,7 +166,7 @@
         
           <li><a href="index.html">拓展模块</a> &raquo;</li>
         
-      <li><span class="section-number">9. </span>语音识别模块</li>
+      <li><span class="section-number">10. </span>语音识别模块</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -185,7 +186,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1><span class="section-number">9. </span>语音识别模块<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1><span class="section-number">10. </span>语音识别模块<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>语音识别模块，通信接口I2C。</p>
 <p>模块上电处于休眠状态，在语音唤醒后为正常运行状态，此时状态指示灯亮蓝色。
 每次唤醒触发运行时长15秒，可以重复触发。</p>
@@ -222,14 +223,14 @@
 </tbody>
 </table>
 <div class="section" id="id2">
-<h2><span class="section-number">9.1. </span>“唤醒词”和“命令词”<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2><span class="section-number">10.1. </span>“唤醒词”和“命令词”<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>语音识别关键词分“唤醒词”和“命令词”，唤醒词用于从休眠状态唤醒模块，进而进行“命令词”的语音识别。</p>
 <p><strong>唤醒词为：“小智小智”，“小爱同学”，“智能管家”。</strong></p>
 <p>模块唤醒后，识别到用户说的“命令词”时，会通过计算得出最大概率的识别结果：“命令词ID”，通过读取“命令词ID”，即可判别用户的命令。
 模块预先设置的“命令词”，详情请查询本页最后的“语音识别命令词表”。</p>
 </div>
 <div class="section" id="id3">
-<h2><span class="section-number">9.2. </span>自学习模式<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2><span class="section-number">10.2. </span>自学习模式<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>模块预先设置的“命令词”不能满足用户需求时，可通过语音对话方式添加自定义“命令词”。
 模块的自学习模式可通过语音对话的方式添加自定义命令词（最大18个）。</p>
 <table class="docutils align-default">
@@ -275,7 +276,7 @@
 <p>学习流程 ：唤醒模块 –&gt; “学习命令词”，根据语音提示学习，学习完成 –&gt; “退出学习”。</p>
 </div>
 <div class="section" id="id4">
-<h2><span class="section-number">9.3. </span>应用编程接口说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2><span class="section-number">10.3. </span>应用编程接口说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 导入 asr 模块</span>
 <span class="sd">&#39;&#39;&#39;</span>
@@ -297,7 +298,7 @@
 </div>
 </div>
 <div class="section" id="id5">
-<h2><span class="section-number">9.4. </span>案例<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h2><span class="section-number">10.4. </span>案例<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p><strong>1. 语音识别开关灯</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="o">*</span>
@@ -341,7 +342,7 @@
 </div>
 </div>
 <div class="section" id="id6">
-<h2><span class="section-number">9.5. </span>语音识别命令词表<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<h2><span class="section-number">10.5. </span>语音识别命令词表<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 41%" />
@@ -760,10 +761,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tts.html" class="btn btn-neutral float-right" title="10. 语音合成模块" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tts.html" class="btn btn-neutral float-right" title="11. 语音合成模块" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="servo.html" class="btn btn-neutral float-left" title="8. 舵机" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="multi_ch_servo.html" class="btn btn-neutral float-left" title="9. 多路舵机" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
