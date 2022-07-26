@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>17. 粉尘传感器 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="海龟画图" href="../turtle.html" />
+    <link rel="prev" title="16. 二氧化碳传感器" href="co2_sensor.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> 开元编程开发套件
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">教程</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controller/index.html">主控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_reference/index.html">快速开始</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">拓展模块</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rgb_led.html">1. 可编程全彩LED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">2. 按键组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="potentiometer.html">3. 电位器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic.html">4. 超声波测距传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="th_sensor.html">5. 温湿度传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="light_sensor.html">6. 光照强度传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motor_fan.html">7. 电机风扇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servo.html">8. 舵机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_ch_servo.html">9. 多路舵机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asr.html">10. 语音识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tts.html">11. 语音合成模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fingerprint.html">12. 指纹识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gps.html">13. 卫星定位导航模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enlighten.html">14. AI模块启蒙</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pir.html">15. 人体热释电传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="co2_sensor.html">16. 二氧化碳传感器</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">17. 粉尘传感器</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">17.1. 应用编程接口说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">17.2. 案例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../turtle.html">海龟画图</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MicroPython 库</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../micropython/index.html">MicroPython库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">图形化编程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mixly/readme.html">图形化编程</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">开元编程开发套件</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">拓展模块</a> &raquo;</li>
+        
+      <li><span class="section-number">17. </span>粉尘传感器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/tutorials/modules/dust_sensor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">17. </span>粉尘传感器<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>测量 PM2.5</p>
+<div class="section" id="id2">
+<h2><span class="section-number">17.1. </span>应用编程接口说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 导入 dust_sensor 模块</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">dust_sensor</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 类：dust_sensor</span>
+<span class="sd"> 参数:</span>
+<span class="sd">    port: 端口号 -- 1或7</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">class</span> <span class="nc">dust_sensor</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：读取测量值</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">dust_sensor</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">17.2. </span>案例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p><strong>1. 空气质量指数检测</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">lcd</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="o">*</span>
+
+
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">dust_sensor</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 粉尘传感器 -- 端口1</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">motor_fan</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>         <span class="c1"># 电机风扇 -- 端口7</span>
+<span class="n">m</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># AQI(空气质量指数)等级划分 0~50~100~150~200~300~500</span>
+<span class="n">aqi_index</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">aqi_color</span> <span class="o">=</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">227</span><span class="p">,</span><span class="mi">207</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">128</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">135</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">87</span><span class="p">),</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">42</span><span class="p">))</span>
+<span class="n">aqi_label</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;优&quot;</span><span class="p">,</span> <span class="s2">&quot;良&quot;</span><span class="p">,</span> <span class="s2">&quot;轻度污染&quot;</span><span class="p">,</span> <span class="s2">&quot;中度污染&quot;</span><span class="p">,</span> <span class="s2">&quot;重度污染&quot;</span><span class="p">,</span> <span class="s2">&quot;严重污染&quot;</span><span class="p">)</span>
+
+<span class="c1"># 绘制初始界面</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">72</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;空气质量检测&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="mi">40</span><span class="o">+</span><span class="mi">50</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">aqi_index</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">lcd</span><span class="o">.</span><span class="n">draw_rectangle</span><span class="p">(</span><span class="mi">190</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="mi">40</span><span class="o">+</span><span class="mi">50</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">aqi_color</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># 设置空气净化器开关阈值</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="n">aqi_index</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># 读取 PM2.5 测量值</span>
+    <span class="n">pm2_5</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="c1"># 根据 PM2.5 数值判断是否开启空气净化器</span>
+    <span class="k">if</span> <span class="n">pm2_5</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">:</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="s2">&quot;空气净化器:开启&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="s2">&quot;空气净化器:关闭&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="c1"># 显示 PM2.5 测量值</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">pm2_5</span> <span class="o">&gt;</span> <span class="n">aqi_index</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">and</span> <span class="n">pm2_5</span> <span class="o">&lt;</span> <span class="n">aqi_index</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;PM2.5: </span><span class="si">%d</span><span class="s2"> PPM &quot;</span><span class="o">%</span><span class="n">pm2_5</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="n">aqi_color</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="s2">&quot;空气质量:&quot;</span> <span class="o">+</span> <span class="n">aqi_label</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fc</span><span class="o">=</span><span class="n">aqi_color</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">bc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../turtle.html" class="btn btn-neutral float-right" title="海龟画图" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="co2_sensor.html" class="btn btn-neutral float-left" title="16. 二氧化碳传感器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Buintel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

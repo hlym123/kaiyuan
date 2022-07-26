@@ -22,17 +22,13 @@ GPS/北斗双模定位导航模块，可用于导航，定位，授时等。
      类：gps
      参数:
         port: 端口号 -- 1或7 
-        location_formatting: 经纬度格式
-            'ddm' -- Decimal Degree Minute (ddm) - 40° 26.767′ N
-            'dms' -- Degrees Minutes Seconds (dms) - 40° 26′ 46″ N
-            'dd'  -- Decimal Degrees (dd) - 40.446° N
     '''
-    class bds(port, location_formatting='ddm')
+    class bds(port)
     
     '''
      方法：更新数据 
     '''
-	bds.update()
+    bds.update()
     
     '''
      变量：可见卫星数 
@@ -94,48 +90,72 @@ GPS/北斗双模定位导航模块，可用于导航，定位，授时等。
 
 ::
 
-    from machine import UART, Pin
-    import lcd
-    from openaie import*
-
-
-    my_gps = bds(port=1, location_formatting='dd')
-
-    lcd.rotation(0)
-    lcd.set_backlight(100)
+    import lcd, time, math 
+    from openaie import bds
      
-    sentence_count = 0
-    while True:
-        stat = my_gps.update() # 更新数据 
-        if stat: # 接收到语句
-            #print(stat)
-            stat = None
-            sentence_count += 1 # 接收语句计数
+
+    '''
+     时区转换 
+     @dt: 日期时间 格式[year, month, day, hour, minute, second]
+     @timezone: 时区 默认为东8区，即北京时间  
+    '''
+    def datetime(dt, timezone=8):
+        year, month, day, hour, minute, second = dt[:]
+        month_day = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        if year%4 == 0: # 闰年判断
+            month_day[1] = 29
+        hour += timezone
+        if hour >= 24:
+            hour -= 24 
+            day += 1
+            if day > month_day[month-1]:
+                day -=  month_day[month-1]
+                month += 1 
+                if month > 12: 
+                    month = 1
+                    year += 1
+        date_string = "%04d/%02d/%02d"%(year, month, day)
+        time_string = "%02d:%02d:%02d "%(hour, minute, second)
+        #print(date_string, ' ', time_string)
+        return [year, month, day, hour, minute, second]
+
+
+
+    # 显示屏设置
+    lcd.set_backlight(50)
+    lcd.rotation(0)
+
+    my_gps = bds(1)
+
+    deadline = 0
+    while True:  
+        my_gps.update()
+        if time.ticks_diff(deadline, time.ticks_ms()) < 0:
+            deadline = time.ticks_add(time.ticks_ms(), 500)  # 显示刷新间隔 500ms
             
             lcd.clear(color=(0,0,0))
-             
+            lcd.draw_string(72, 5, '卫星定位授时', fc=(0,0,255), bc=(0,0,0))
+            # 显示日期时间 
+            day, month, year = my_gps.date[:] # 获取日期（UTC）
+            hour, minute, second = my_gps.timestamp[:] # 获取时间（UTC）
+            year, month, day, hour, minute, second = datetime([year+2000, month, day, hour, minute, second])[:] # 时区转换
+            date_string = "%04d/%02d/%02d"%(year, month, day)
+            lcd.draw_string(10, 40, date_string, fc=(0,0,255), bc=(0,0,0))
+            time_string = "%02d:%02d:%02d "%(hour, minute, second)
+            lcd.draw_string(110, 40, time_string, fc=(0,0,255), bc=(0,0,0))
             # 卫星信息
-            lcd.draw_string(10, 30, '可见卫星: %s 颗'%my_gps.satellites_in_view, fc=(0,0,255), bc=(0,0,0))
-            lcd.draw_string(10, 50, '使用卫星: %s 颗'%my_gps.satellites_in_use, fc=(0,0,255), bc=(0,0,0))
+            lcd.draw_string(10, 75, '可见卫星: %s 颗'%my_gps.satellites_in_view, fc=(0,0,255), bc=(0,0,0))
+            lcd.draw_string(10, 95, '使用卫星: %s 颗'%my_gps.satellites_in_use, fc=(0,0,255), bc=(0,0,0))
             # 位置 
-            lcd.draw_string(10, 70, '经度: '+my_gps.longitude_string(), fc=(0,0,255), bc=(0,0,0))
-            lcd.draw_string(10, 90, '纬度: '+my_gps.latitude_string(), fc=(0,0,255), bc=(0,0,0))
-            lcd.draw_string(10, 110, '海拔: %d m'%my_gps.altitude, fc=(0,0,255), bc=(0,0,0))
-            lcd.draw_string(10, 130, '速度: %.2f km/h'%my_gps.speed[2], fc=(0,0,255), bc=(0,0,0))
-            # 日期 UTC
-            day, month, year = my_gps.date[:]
-            date_string = "20%02d/%02d/%02d"%(year, month, day)
-            lcd.draw_string(10, 150, date_string, fc=(0,0,255), bc=(0,0,0))
-            # 时间 UTC
-            hour, minute, second = my_gps.timestamp[:]
-            t = " %02d:%02d:%02d "%(hour, minute, second)
-            lcd.draw_string(110, 150, t, fc=(0,0,255), bc=(0,0,0))
-            
-            lcd.draw_string(10, 200, ('count: %d'%  sentence_count), fc=(0,0,255), bc=(0,0,0))
-            
-            #lcd.draw_string(10, 270, '东经: %.5f'%my_gps.longitude[0], fc=(0,0,255), bc=(0,0,0))
-            #lcd.draw_string(10, 290, '北纬: %.5f'%my_gps.latitude[0], fc=(0,0,255), bc=(0,0,0))
+            longitude = my_gps.longitude[0]
+            latitude = my_gps.latitude[0] 
+            lcd.draw_string(10, 115, '经度: %s'%longitude, fc=(0,0,255), bc=(0,0,0))
+            lcd.draw_string(10, 135, '纬度: %s'%latitude, fc=(0,0,255), bc=(0,0,0))
+            lcd.draw_string(10, 155, '海拔: %d m'%my_gps.altitude, fc=(0,0,255), bc=(0,0,0))
+            lcd.draw_string(10, 175  , '速度: %.2f km/h'%my_gps.speed[2], fc=(0,0,255), bc=(0,0,0))
+
             lcd.display()
+
  
 ------------------------------------------------------
 

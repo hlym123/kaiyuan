@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>15. 人体热释电传感器 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="16. 二氧化碳传感器" href="co2_sensor.html" />
+    <link rel="prev" title="14. AI模块启蒙" href="enlighten.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> 开元编程开发套件
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">教程</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controller/index.html">主控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_reference/index.html">快速开始</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">拓展模块</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rgb_led.html">1. 可编程全彩LED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">2. 按键组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="potentiometer.html">3. 电位器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic.html">4. 超声波测距传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="th_sensor.html">5. 温湿度传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="light_sensor.html">6. 光照强度传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motor_fan.html">7. 电机风扇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servo.html">8. 舵机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_ch_servo.html">9. 多路舵机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asr.html">10. 语音识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tts.html">11. 语音合成模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fingerprint.html">12. 指纹识别模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gps.html">13. 卫星定位导航模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enlighten.html">14. AI模块启蒙</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">15. 人体热释电传感器</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">15.1. 应用编程接口说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">15.2. 案例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="co2_sensor.html">16. 二氧化碳传感器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dust_sensor.html">17. 粉尘传感器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../turtle.html">海龟画图</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MicroPython 库</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../micropython/index.html">MicroPython库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">图形化编程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mixly/readme.html">图形化编程</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">开元编程开发套件</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">拓展模块</a> &raquo;</li>
+        
+      <li><span class="section-number">15. </span>人体热释电传感器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/tutorials/modules/pir.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">15. </span>人体热释电传感器<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">15.1. </span>应用编程接口说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 导入 pir_sensor 模块</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">pir_sensor</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 类：pir_sensor</span>
+<span class="sd"> 参数:</span>
+<span class="sd">    port: 端口号 -- 1或7</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">class</span> <span class="nc">pir_sensor</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 方法：检测</span>
+<span class="sd"> @return：检测到有人移动返回 True</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">pir_sensor</span><span class="o">.</span><span class="n">detect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">15.2. </span>案例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p><strong>1. 人体感应灯</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">rgb_led</span><span class="p">,</span> <span class="n">pir_sensor</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">lcd</span>
+
+
+<span class="n">pir_sensor</span> <span class="o">=</span> <span class="n">pir_sensor</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 人体热释电传感器 -- 端口2</span>
+<span class="n">rgb</span> <span class="o">=</span> <span class="n">rgb_led</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>           <span class="c1"># 全彩LED -- 端口6</span>
+
+<span class="n">deadline</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">delay_time</span> <span class="o">=</span> <span class="mi">3000</span> <span class="c1"># 单次触发延时时间 3000ms</span>
+<span class="n">light_on</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># 绘制初始界面</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">76</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;自动感应灯&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">pir_sensor</span><span class="o">.</span><span class="n">detect</span><span class="p">():</span> <span class="c1"># 检测到有人</span>
+        <span class="n">deadline</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">delay_time</span><span class="p">)</span> <span class="c1"># 重新计算截止时间</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">light_on</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                <span class="n">rgb</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
+            <span class="n">rgb</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+            <span class="n">light_on</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;检测到有人&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="s2">&quot;照明设备:开启&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;turn on the light&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">light_on</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;now: &quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">deadline</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># 判断是否超时，超时自动关闭照明</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                <span class="n">rgb</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+            <span class="n">rgb</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+            <span class="n">light_on</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;没有检测到&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="s2">&quot;照明设备:关闭&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">bc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;turn off the light&quot;</span><span class="p">)</span>
+
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="co2_sensor.html" class="btn btn-neutral float-right" title="16. 二氧化碳传感器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="enlighten.html" class="btn btn-neutral float-left" title="14. AI模块启蒙" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Buintel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

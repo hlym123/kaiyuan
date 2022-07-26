@@ -19,6 +19,9 @@
    fingerprint.rst
    gps.rst 
    enlighten.rst 
+   pir.rst 
+   co2_sensor.rst 
+   dust_sensor.rst 
 
 
 
